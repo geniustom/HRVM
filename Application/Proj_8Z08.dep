@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>2839657489</fileChecksum>
+  <configuration>
+    <name>Debug</name>
+    <outputs>
+      <file>$PROJ_DIR$\DateTime\Datetime.c</file>
+      <file>$PROJ_DIR$\Ecg\EcgMeasure.c</file>
+      <file>$PROJ_DIR$\Ecg\Fir.c</file>
+      <file>$PROJ_DIR$\..\DriverLib\DriverExport.h</file>
+      <file>$PROJ_DIR$\Ecg\Sdnn.c</file>
+      <file>$PROJ_DIR$\..\RTOS\RTOSExport.h</file>
+      <file>$PROJ_DIR$\Menu\MenuUI.c</file>
+      <file>$PROJ_DIR$\Menu\RDMode.c</file>
+      <file>$PROJ_DIR$\Other\Storage.c</file>
+      <file>$PROJ_DIR$\Other\Uart.c</file>
+      <file>$PROJ_DIR$\main.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\RDMode.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\MenuUI.r43</file>
+      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$TOOLKIT_DIR$\inc\MSP430x16x.h</file>
+      <file>$TOOLKIT_DIR$\inc\clib\math.h</file>
+      <file>$PROJ_DIR$\..\Bootloader\BootloaderExport.h</file>
+      <file>$TOOLKIT_DIR$\config\multiplier.xcl</file>
+      <file>$PROJ_DIR$\Debug\Obj\Uart.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\Storage.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\Datetime.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\Sdnn.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\RDMode.r43</file>
+      <file>$PROJ_DIR$\Debug\Exe\Proj_8Z08.d43</file>
+      <file>$PROJ_DIR$\Debug\Obj\Sdnn.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\Fir.pbi</file>
+      <file>$PROJ_DIR$\Menu\MenuUI.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\EcgMeasure.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\Datetime.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\clib\sysmac.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Uart.pbi</file>
+      <file>$PROJ_DIR$\lnk430F1612.xcl</file>
+      <file>$PROJ_DIR$\AppExport.h</file>
+      <file>$PROJ_DIR$\Menu\MAP.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Proj_8Z08.pbd</file>
+      <file>$PROJ_DIR$\Debug\Obj\Fir.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\Storage.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\EcgMeasure.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\in430.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\MenuUI.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\clib\stdlib.h</file>
+      <file>$PROJ_DIR$\Debug\Exe\Proj_8Z08.ulp</file>
+    </outputs>
+    <file>
+      <name>$PROJ_DIR$\DateTime\Datetime.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 30</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 21</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 34 42 31 3 15 40 14 17 5 28</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 34 42 31 3 15 40 14 17 5 28</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Ecg\EcgMeasure.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 39</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 29</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 3 15 40 14 5 34 42 31 17 28</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 3 15 40 14 5 34 42 31 17 28</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Ecg\Fir.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 27</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 37</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 16 31 42 34 3 15 40 14 17 5 28</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 16 31 42 34 3 15 40 14 17 5 28</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Ecg\Sdnn.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 23</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 26</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 3 15 40 14 5 34 42 31 17 28 16</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 3 15 40 14 5 34 42 31 17 28 16</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Menu\MenuUI.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 41</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 13</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 28 35 3 15 40 14 5 34 42 31 17</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 28 35 3 15 40 14 5 34 42 31 17</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Menu\RDMode.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 12</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 24</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 28 3 15 40 14 5 34 42 31 17</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 28 3 15 40 14 5 34 42 31 17</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Other\Storage.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 38</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 20</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 3 15 40 14 5 34 42 31 17 28</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 3 15 40 14 5 34 42 31 17 28</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Other\Uart.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 32</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 19</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 3 15 40 14 5 34 42 31 17 28</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 3 15 40 14 5 34 42 31 17 28</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\main.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 11</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 22</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 34 42 31 3 15 40 14 17 5 28</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 34 42 31 3 15 40 14 17 5 28</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Exe\Proj_8Z08.d43</name>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 33 18</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 25</file>
+        </tool>
+        <tool>
+          <name>ULP430</name>
+          <file> 43</file>
+        </tool>
+      </outputs>
+    </file>
+    <forcedrebuild>
+      <name>[REBUILD_ALL]</name>
+    </forcedrebuild>
+  </configuration>
+  <configuration>
+    <name>Release</name>
+    <outputs/>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>XLINK</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>[REBUILD_ALL]</name>
+    </forcedrebuild>
+  </configuration>
+</project>
+
+

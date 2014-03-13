@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\Bootloader\BootLoaderOnly.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\DriverLib\DriverLib.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\Application\Proj_8Z08.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\Bootloader\RamUpdateSubProgram.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\RTOS\RTOS.ewp</path>
+  </project>
+  <batchBuild>
+    <batchDefinition>
+      <name>BuildAll</name>
+      <member>
+        <project>DriverLib</project>
+        <configuration>Debug</configuration>
+      </member>
+      <member>
+        <project>BootLoaderOnly</project>
+        <configuration>Debug</configuration>
+      </member>
+      <member>
+        <project>RTOS</project>
+        <configuration>Debug</configuration>
+      </member>
+      <member>
+        <project>Proj_8Z08</project>
+        <configuration>Debug</configuration>
+      </member>
+    </batchDefinition>
+  </batchBuild>
+</workspace>
+
+
