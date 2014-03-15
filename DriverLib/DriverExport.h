@@ -3,6 +3,7 @@
 #include "CoreDefine.h"
 #define DriverUse_H
 
+#define MSP430Clock 25000000
 /*************************************************************************
 ;                       ISR MESSAGE PIRORITY
 *************************************************************************/
@@ -96,7 +97,18 @@ typedef struct{
 extern GPIOHookStruct GPIOHook[MaxOfHook];
 extern void GPIODetect();
 extern void AddGPIOHook(int GPIOID,unsigned char HookType,void (*HookCallBack)(),unsigned char HookIndex);
-
+/*************************************************************************
+;                          FLASH FUNCTION
+*************************************************************************/
+extern void  flash_write_word (unsigned int value,unsigned int address);
+extern void  flash_write_Block (unsigned int address,unsigned char const *FBuf,unsigned int Length);
+extern void  flash_erase_multi_segments (unsigned int Seg_Address,unsigned int Number_of_segments);
+/*************************************************************************
+;                          UART FUNCTION
+*************************************************************************/
+extern void OpenUart(unsigned char Port,unsigned long Baudrate,void (*CallBackFunction)(unsigned char));
+extern void SendTextToUart(unsigned char Port,const unsigned char *SBUF,unsigned int length);
+extern void SendByteToUart(unsigned char Port,unsigned char SBUF);
 /*************************************************************************
 ;                          Button IO FUNCTION
 *************************************************************************/
@@ -157,7 +169,7 @@ extern void CreateChart(unsigned char Left,unsigned char Top,unsigned char Width
 extern void Print(unsigned char *CharData,unsigned char len,unsigned char Left,unsigned char Top,unsigned char fontsize);
 extern void AddValue(OLEDCHART *OLC,int value);
 /*************************************************************************
-;                          FLASH IO FUNCTION
+;                          NAND FLASH IO FUNCTION
 *************************************************************************/
 typedef struct {
   unsigned char Busy;           //busy for RW

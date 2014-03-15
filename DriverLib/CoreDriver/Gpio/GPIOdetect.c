@@ -1,4 +1,4 @@
-#include "../DriverExport.h"
+#include "../../DriverExport.h"
 
 GPIOHookStruct GPIOHook[MaxOfHook];
 /************************************************************

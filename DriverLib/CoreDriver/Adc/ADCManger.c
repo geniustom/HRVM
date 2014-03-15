@@ -1,4 +1,4 @@
-#include "../DriverExport.h"
+#include "../../DriverExport.h"
 
 ADC_Struct AD_Struct;
 ADC_Queue ADQueue_ECG;

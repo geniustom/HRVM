@@ -1,5 +1,5 @@
 #include "Nand.h"
-#include "../DriverExport.h"
+#include "../../DriverExport.h"
 
 void Init_Flash(void){
   FLASHBus = 0;

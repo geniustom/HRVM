@@ -31,6 +31,8 @@
       <file>$TOOLKIT_DIR$\inc\msp430.h</file>
       <file>$PROJ_DIR$\..\Driverlib\CoreDefine.h</file>
       <file>$TOOLKIT_DIR$\inc\MSP430X16X.h</file>
+      <file>$PROJ_DIR$\..\DriverLib\CoreDriver\Flash\Flash.c</file>
+      <file>$PROJ_DIR$\..\DriverLib\CoreDriver\Uart\Uart.c</file>
     </outputs>
     <file>
       <name>$PROJ_DIR$\System\BootLoader.c</name>

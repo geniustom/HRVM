@@ -1,4 +1,4 @@
-#include "../DriverExport.h"
+#include "../../DriverExport.h"
 
 
 BatteryStruct BattStruct;
@@ -52,33 +52,6 @@ void Close_BattDetect(){
   BattStruct.BattDetectState=0;
   Close_ADC();
   ReleaseTimer(BattStruct.BattID);
-}
-
-#ifdef MSP430F16x 
-void Use_DCO(void)
-{
- BCSCTL2 = 0;  //use DCO
- BCSCTL1 |= XT2OFF;                   // XT2= HF XTAL
-}
-#endif
-
-
-#ifdef MSP430F16x 
-void Use_XTAL2(void)
-{
-  BCSCTL1 &= ~XT2OFF;                   // XT2= HF XTAL
-  do
-  {
-  IFG1 &= ~OFIFG;                       // Clear OSCFault flag
-  for (int i = 0xFF; i > 0; i--);           // Time for flag to set
-  }
-  while ((IFG1 & OFIFG));               // OSCFault flag still set?
-  BCSCTL2 |= SELM_2;                    // MCLK= XT2 (safe)
-}
-#endif
-
-void Reset(){
-  asm("MOV 0xFFFE,PC");
 }
 
 void PowerDown(){

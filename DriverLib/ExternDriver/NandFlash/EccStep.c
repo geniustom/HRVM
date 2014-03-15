@@ -1,5 +1,5 @@
 #include "Nand.h"
-#include "../DriverExport.h"
+#include "../../DriverExport.h"
 
  unsigned char LP0=0,LP1=0,LP2=0,LP3=0,LP4=0,LP5=0,LP6=0,LP7=0,LP8=0,LP9=0,LP10=0,LP11=0,LP12=0,LP13=0,LP14=0,LP15=0,LP16=0,LP17=0;
  unsigned char CP0=0,CP1=0,CP2=0,CP3=0,CP4=0,CP5=0;

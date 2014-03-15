@@ -138,11 +138,11 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 8 15 12 28 11</file>
+          <file> 28 8 15 12 11</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 8 15 12 28 11</file>
+          <file> 28 8 15 12 11</file>
         </tool>
       </inputs>
     </file>
