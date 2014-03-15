@@ -2,18 +2,23 @@
 
 <project>
   <fileVersion>2</fileVersion>
-  <fileChecksum>2159628210</fileChecksum>
+  <fileChecksum>1235841899</fileChecksum>
   <configuration>
     <name>Debug</name>
     <outputs>
+      <file>$TOOLKIT_DIR$\inc\clib\math.h</file>
+      <file>$PROJ_DIR$\CoreDefine.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Nand.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\I2C_RTC_Chip.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\Power.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\Button.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\WDT.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\Buzzer.pbi</file>
       <file>$PROJ_DIR$\Adc\ADCManger.c</file>
       <file>$PROJ_DIR$\Buzzer\Buzzer.c</file>
-      <file>$PROJ_DIR$\Flash\EccStep.c</file>
       <file>$PROJ_DIR$\ERROR\ErrorCode.c</file>
-      <file>$PROJ_DIR$\Debug\Obj\Nand.r43</file>
-      <file>$PROJ_DIR$\Debug\Obj\GPIOdetect.r43</file>
-      <file>$PROJ_DIR$\Debug\Exe\DriverLib.ulp</file>
       <file>$PROJ_DIR$\Flash\Nand.c</file>
+      <file>$PROJ_DIR$\Flash\EccStep.c</file>
       <file>$PROJ_DIR$\Gpio\Button.c</file>
       <file>$PROJ_DIR$\Gpio\GPIOdetect.c</file>
       <file>$PROJ_DIR$\Oled\RTOS_OLED.C</file>
@@ -23,71 +28,69 @@
       <file>$PROJ_DIR$\Timer\TBManager.c</file>
       <file>$PROJ_DIR$\Timer\WDT.C</file>
       <file>$PROJ_DIR$\DriverExport.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\EccStep.r43</file>
       <file>$PROJ_DIR$\DriverTest.c</file>
       <file>$PROJ_DIR$\ISRMessage.c</file>
       <file>$PROJ_DIR$\PortManger.c</file>
-      <file>$PROJ_DIR$\Debug\Obj\DriverTest.r43</file>
-      <file>$PROJ_DIR$\Debug\Obj\WDT.r43</file>
-      <file>$PROJ_DIR$\Debug\Obj\ErrorCode.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\Buzzer.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\Button.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\WDT.pbi</file>
       <file>$PROJ_DIR$\Debug\Obj\TBManager.r43</file>
-      <file>$PROJ_DIR$\Debug\Obj\Button.r43</file>
-      <file>$PROJ_DIR$\Debug\Obj\I2C_RTC_Chip.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\Power.r43</file>
-      <file>$PROJ_DIR$\Debug\Obj\Nand.pbi</file>
       <file>$PROJ_DIR$\Flash\Nand.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\PortManger.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\ADCManger.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\I2C_RTC_Chip.r43</file>
-      <file>$PROJ_DIR$\Debug\Obj\PortManger.r43</file>
-      <file>$TOOLKIT_DIR$\config\multiplier.xcl</file>
-      <file>$PROJ_DIR$\Button\Button.c</file>
-      <file>$TOOLKIT_DIR$\lib\clib\cl430f.r43</file>
-      <file>$PROJ_DIR$\Debug\Obj\DriverTest.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\ADCManger.r43</file>
-      <file>$PROJ_DIR$\lnk430F1612.xcl</file>
+      <file>$PROJ_DIR$\Debug\Obj\Button.pbi</file>
+      <file>$PROJ_DIR$\Debug\Exe\DriverLib.ulp</file>
+      <file>$PROJ_DIR$\Debug\Obj\Nand.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\GPIOdetect.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\WDT.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\EccStep.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\DriverTest.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\ErrorCode.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\msp430.h</file>
+      <file>$TOOLKIT_DIR$\inc\msp430f5438a.h</file>
       <file>$PROJ_DIR$\Oled\RTOS_OLED.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\ISRMessage.r43</file>
+      <file>$PROJ_DIR$\Debug\Exe\DriverLib.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\RTOS_OLED.r43</file>
+      <file>$PROJ_DIR$\Debug\Exe\DriverLib.d43</file>
+      <file>$PROJ_DIR$\Debug\List\DriverLib.map</file>
+      <file>$PROJ_DIR$\Debug\Obj\TBManager.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\ADCManger.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\Buzzer.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\PortManger.r43</file>
       <file>$PROJ_DIR$\Debug\Obj\ISRMessage.pbi</file>
       <file>$PROJ_DIR$\Debug\Obj\RTC_Alarm.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\GPIOdetect.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\DriverLib.pbd</file>
-      <file>$PROJ_DIR$\Debug\Obj\Buzzer.r43</file>
-      <file>$TOOLKIT_DIR$\inc\in430.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\ErrorCode.r43</file>
-      <file>$TOOLKIT_DIR$\inc\MSP430x16x.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\RTOS_OLED.pbi</file>
-      <file>$PROJ_DIR$\Debug\Exe\DriverLib.r43</file>
-      <file>$PROJ_DIR$\PortManger.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\ADCManger.pbi</file>
       <file>$TOOLKIT_DIR$\inc\clib\sysmac.h</file>
-      <file>$PROJ_DIR$\Debug\Exe\DriverLib.d43</file>
+      <file>$PROJ_DIR$\Button\Button.c</file>
       <file>$PROJ_DIR$\Debug\Exe\DriverLib.txt</file>
-      <file>$PROJ_DIR$\Debug\Obj\RTOS_OLED.r43</file>
+      <file>$TOOLKIT_DIR$\inc\MSP430X16X.h</file>
+      <file>$TOOLKIT_DIR$\inc\in430.h</file>
+      <file>$TOOLKIT_DIR$\config\multiplier.xcl</file>
+      <file>$TOOLKIT_DIR$\lib\clib\cl430f.r43</file>
       <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\TBManager.pbi</file>
-      <file>$TOOLKIT_DIR$\inc\clib\math.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\Power.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\ISRMessage.r43</file>
-      <file>$PROJ_DIR$\Debug\List\DriverLib.map</file>
-      <file>$PROJ_DIR$\Debug\Obj\EccStep.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\GPIOdetect.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\ErrorCode.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\I2C_RTC_Chip.r43</file>
+      <file>$PROJ_DIR$\PortManger.h</file>
       <file>$PROJ_DIR$\Debug\Obj\RTC_Alarm.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\EccStep.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\PortManger.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\RTOS_OLED.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\Power.pbi</file>
+      <file>$PROJ_DIR$\lnk430F1612.xcl</file>
+      <file>$PROJ_DIR$\Debug\Obj\DriverTest.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\DriverLib.pbd</file>
     </outputs>
     <file>
       <name>[ROOT_NODE]</name>
       <outputs>
         <tool>
           <name>XLINK</name>
-          <file> 64 57 56</file>
+          <file> 42 52 41</file>
         </tool>
         <tool>
           <name>XAR</name>
-          <file> 53</file>
+          <file> 39</file>
         </tool>
         <tool>
           <name>ULP430</name>
-          <file> 6</file>
+          <file> 28</file>
         </tool>
       </outputs>
     </file>
@@ -96,21 +99,17 @@
       <outputs>
         <tool>
           <name>BICOMP</name>
-          <file> 34</file>
-        </tool>
-        <tool>
-          <name>ICC430</name>
-          <file> 41</file>
+          <file> 49</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 16 51 49 59</file>
+          <name>ICC430</name>
+          <file> 21 1 35 36 54 57</file>
         </tool>
         <tool>
-          <name>ICC430</name>
-          <file> 16 51 49 59</file>
+          <name>BICOMP</name>
+          <file> 21 1 35 36 54 57</file>
         </tool>
       </inputs>
     </file>
@@ -118,45 +117,22 @@
       <name>$PROJ_DIR$\Buzzer\Buzzer.c</name>
       <outputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 24</file>
+          <name>ICC430</name>
+          <file> 45</file>
         </tool>
         <tool>
-          <name>ICC430</name>
-          <file> 48</file>
+          <name>BICOMP</name>
+          <file> 7</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 16 51 49 59</file>
-        </tool>
-        <tool>
           <name>ICC430</name>
-          <file> 16 51 49 59</file>
+          <file> 21 1 35 36 54 57</file>
         </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\Flash\EccStep.c</name>
-      <outputs>
         <tool>
           <name>BICOMP</name>
-          <file> 65</file>
-        </tool>
-        <tool>
-          <name>ICC430</name>
-          <file> 17</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 32 51 49 59 16</file>
-        </tool>
-        <tool>
-          <name>ICC430</name>
-          <file> 32 51 49 59 16</file>
+          <file> 21 1 35 36 54 57</file>
         </tool>
       </inputs>
     </file>
@@ -164,22 +140,22 @@
       <name>$PROJ_DIR$\ERROR\ErrorCode.c</name>
       <outputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 23</file>
+          <name>ICC430</name>
+          <file> 59</file>
         </tool>
         <tool>
-          <name>ICC430</name>
-          <file> 50</file>
+          <name>BICOMP</name>
+          <file> 34</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 16 51 49 59</file>
+          <name>ICC430</name>
+          <file> 21 1 35 36 54 57</file>
         </tool>
         <tool>
-          <name>ICC430</name>
-          <file> 16 51 49 59</file>
+          <name>BICOMP</name>
+          <file> 21 1 35 36 54 57</file>
         </tool>
       </inputs>
     </file>
@@ -188,21 +164,36 @@
       <outputs>
         <tool>
           <name>BICOMP</name>
-          <file> 31</file>
-        </tool>
-        <tool>
-          <name>ICC430</name>
-          <file> 4</file>
+          <file> 2</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 32 51 49 59 16</file>
+          <name>ICC430</name>
+          <file> 26 53 54 57 21 1 35 36</file>
         </tool>
         <tool>
+          <name>BICOMP</name>
+          <file> 26 53 54 57 21 1 35 36</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Flash\EccStep.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 63</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
           <name>ICC430</name>
-          <file> 32 51 49 59 16</file>
+          <file> 26 53 54 57 21 1 35 36</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 26 53 54 57 21 1 35 36</file>
         </tool>
       </inputs>
     </file>
@@ -210,22 +201,22 @@
       <name>$PROJ_DIR$\Gpio\Button.c</name>
       <outputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 25</file>
+          <name>ICC430</name>
+          <file> 5</file>
         </tool>
         <tool>
-          <name>ICC430</name>
-          <file> 28</file>
+          <name>BICOMP</name>
+          <file> 27</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 16 51 49 59</file>
+          <name>ICC430</name>
+          <file> 21 1 35 36 54 57</file>
         </tool>
         <tool>
-          <name>ICC430</name>
-          <file> 16 51 49 59</file>
+          <name>BICOMP</name>
+          <file> 21 1 35 36 54 57</file>
         </tool>
       </inputs>
     </file>
@@ -233,22 +224,22 @@
       <name>$PROJ_DIR$\Gpio\GPIOdetect.c</name>
       <outputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 46</file>
+          <name>ICC430</name>
+          <file> 30</file>
         </tool>
         <tool>
-          <name>ICC430</name>
-          <file> 5</file>
+          <name>BICOMP</name>
+          <file> 58</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 16 51 49 59</file>
+          <name>ICC430</name>
+          <file> 21 1 35 36 54 57</file>
         </tool>
         <tool>
-          <name>ICC430</name>
-          <file> 16 51 49 59</file>
+          <name>BICOMP</name>
+          <file> 21 1 35 36 54 57</file>
         </tool>
       </inputs>
     </file>
@@ -256,22 +247,22 @@
       <name>$PROJ_DIR$\Oled\RTOS_OLED.C</name>
       <outputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 52</file>
+          <name>ICC430</name>
+          <file> 40</file>
         </tool>
         <tool>
-          <name>ICC430</name>
-          <file> 58</file>
+          <name>BICOMP</name>
+          <file> 65</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 43 16 51 49 59 54 61 55</file>
+          <name>ICC430</name>
+          <file> 37 21 1 35 36 54 57 61 0 50</file>
         </tool>
         <tool>
-          <name>ICC430</name>
-          <file> 43 16 51 49 59 54 61 55</file>
+          <name>BICOMP</name>
+          <file> 37 21 1 35 36 54 57 61 0 50</file>
         </tool>
       </inputs>
     </file>
@@ -280,21 +271,17 @@
       <outputs>
         <tool>
           <name>BICOMP</name>
-          <file> 62</file>
-        </tool>
-        <tool>
-          <name>ICC430</name>
-          <file> 30</file>
+          <file> 66</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 16 51 49 59</file>
+          <name>ICC430</name>
+          <file> 21 1 35 36 54 57</file>
         </tool>
         <tool>
-          <name>ICC430</name>
-          <file> 16 51 49 59</file>
+          <name>BICOMP</name>
+          <file> 21 1 35 36 54 57</file>
         </tool>
       </inputs>
     </file>
@@ -302,22 +289,22 @@
       <name>$PROJ_DIR$\Timer\I2C_RTC_Chip.c</name>
       <outputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 29</file>
+          <name>ICC430</name>
+          <file> 60</file>
         </tool>
         <tool>
-          <name>ICC430</name>
-          <file> 35</file>
+          <name>BICOMP</name>
+          <file> 3</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 16 51 49 59</file>
+          <name>ICC430</name>
+          <file> 21 1 35 36 54 57</file>
         </tool>
         <tool>
-          <name>ICC430</name>
-          <file> 16 51 49 59</file>
+          <name>BICOMP</name>
+          <file> 21 1 35 36 54 57</file>
         </tool>
       </inputs>
     </file>
@@ -325,22 +312,22 @@
       <name>$PROJ_DIR$\Timer\RTC_Alarm.c</name>
       <outputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 45</file>
+          <name>ICC430</name>
+          <file> 62</file>
         </tool>
         <tool>
-          <name>ICC430</name>
-          <file> 66</file>
+          <name>BICOMP</name>
+          <file> 48</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 16 51 49 59</file>
+          <name>ICC430</name>
+          <file> 21 1 35 36 54 57</file>
         </tool>
         <tool>
-          <name>ICC430</name>
-          <file> 16 51 49 59</file>
+          <name>BICOMP</name>
+          <file> 21 1 35 36 54 57</file>
         </tool>
       </inputs>
     </file>
@@ -348,22 +335,22 @@
       <name>$PROJ_DIR$\Timer\TBManager.c</name>
       <outputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 60</file>
+          <name>ICC430</name>
+          <file> 25</file>
         </tool>
         <tool>
-          <name>ICC430</name>
-          <file> 27</file>
+          <name>BICOMP</name>
+          <file> 43</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 16 51 49 59</file>
+          <name>ICC430</name>
+          <file> 21 1 35 36 54 57</file>
         </tool>
         <tool>
-          <name>ICC430</name>
-          <file> 16 51 49 59</file>
+          <name>BICOMP</name>
+          <file> 21 1 35 36 54 57</file>
         </tool>
       </inputs>
     </file>
@@ -372,21 +359,17 @@
       <outputs>
         <tool>
           <name>BICOMP</name>
-          <file> 26</file>
-        </tool>
-        <tool>
-          <name>ICC430</name>
-          <file> 22</file>
+          <file> 6</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 16 51 49 59</file>
+          <name>ICC430</name>
+          <file> 21 1 35 36 54 57</file>
         </tool>
         <tool>
-          <name>ICC430</name>
-          <file> 16 51 49 59</file>
+          <name>BICOMP</name>
+          <file> 21 1 35 36 54 57</file>
         </tool>
       </inputs>
     </file>
@@ -394,12 +377,12 @@
       <name>$PROJ_DIR$\DriverTest.c</name>
       <outputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 40</file>
+          <name>ICC430</name>
+          <file> 33</file>
         </tool>
         <tool>
-          <name>ICC430</name>
-          <file> 21</file>
+          <name>BICOMP</name>
+          <file> 68</file>
         </tool>
       </outputs>
     </file>
@@ -408,21 +391,17 @@
       <outputs>
         <tool>
           <name>BICOMP</name>
-          <file> 44</file>
-        </tool>
-        <tool>
-          <name>ICC430</name>
-          <file> 63</file>
+          <file> 47</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 16 51 49 59</file>
+          <name>ICC430</name>
+          <file> 21 1 35 36 54 57</file>
         </tool>
         <tool>
-          <name>ICC430</name>
-          <file> 16 51 49 59</file>
+          <name>BICOMP</name>
+          <file> 21 1 35 36 54 57</file>
         </tool>
       </inputs>
     </file>
@@ -430,45 +409,22 @@
       <name>$PROJ_DIR$\PortManger.c</name>
       <outputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 33</file>
+          <name>ICC430</name>
+          <file> 46</file>
         </tool>
         <tool>
-          <name>ICC430</name>
-          <file> 36</file>
+          <name>BICOMP</name>
+          <file> 64</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 16 51 49 59</file>
-        </tool>
-        <tool>
           <name>ICC430</name>
-          <file> 16 51 49 59</file>
+          <file> 21 1 35 36 54 57</file>
         </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\Button\Button.c</name>
-      <outputs>
         <tool>
           <name>BICOMP</name>
-          <file> 25</file>
-        </tool>
-        <tool>
-          <name>ICC430</name>
-          <file> 28</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 16 51 49 59</file>
-        </tool>
-        <tool>
-          <name>ICC430</name>
-          <file> 16 51 49 59</file>
+          <file> 21 1 35 36 54 57</file>
         </tool>
       </inputs>
     </file>
@@ -477,7 +433,7 @@
       <inputs>
         <tool>
           <name>XAR</name>
-          <file> 41 28 48 21 17 50 5 35 63 4 36 30 66 58 27 22</file>
+          <file> 44 5 45 33 32 59 30 60 38 29 46 4 62 40 25 31</file>
         </tool>
       </inputs>
     </file>
@@ -486,19 +442,39 @@
       <outputs>
         <tool>
           <name>XLINK</name>
-          <file> 64 57</file>
+          <file> 42 52</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>XLINK</name>
-          <file> 42 37 41 28 48 21 17 5 63 4 36 30 66 58 27 39</file>
+          <file> 67 55 44 5 45 33 32 30 38 29 46 4 62 40 25 56</file>
         </tool>
       </inputs>
     </file>
-    <forcedrebuild>
-      <name>[REBUILD_ALL]</name>
-    </forcedrebuild>
+    <file>
+      <name>$PROJ_DIR$\Button\Button.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 5</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 27</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 21 53 54 57</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 21 53 54 57</file>
+        </tool>
+      </inputs>
+    </file>
   </configuration>
   <configuration>
     <name>Release</name>

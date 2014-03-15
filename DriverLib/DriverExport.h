@@ -1,7 +1,7 @@
 #ifndef DriverUse_H
 
 #define DriverUse_H
-#include "MSP430x16x.h"
+#include "CoreDefine.h"
 /*************************************************************************
 ;                       ISR MESSAGE PIRORITY
 *************************************************************************/
