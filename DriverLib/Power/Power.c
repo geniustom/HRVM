@@ -54,13 +54,16 @@ void Close_BattDetect(){
   ReleaseTimer(BattStruct.BattID);
 }
 
-
+#ifdef MSP430F16x 
 void Use_DCO(void)
 {
  BCSCTL2 = 0;  //use DCO
  BCSCTL1 |= XT2OFF;                   // XT2= HF XTAL
 }
+#endif
 
+
+#ifdef MSP430F16x 
 void Use_XTAL2(void)
 {
   BCSCTL1 &= ~XT2OFF;                   // XT2= HF XTAL
@@ -72,7 +75,7 @@ void Use_XTAL2(void)
   while ((IFG1 & OFIFG));               // OSCFault flag still set?
   BCSCTL2 |= SELM_2;                    // MCLK= XT2 (safe)
 }
-
+#endif
 
 void Reset(){
   asm("MOV 0xFFFE,PC");

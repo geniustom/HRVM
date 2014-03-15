@@ -280,20 +280,20 @@ void DrawLine(unsigned char StartX,unsigned char StartY,unsigned char EndX,unsig
       	    m = (float)h / w;
       	if (w>0){
             for(int i = 0 ; i <= w ; i++)
-              SetXY(StartX+i,StartY+i*m,1);
+              SetXY(StartX+i,(int)((float)StartY+i*m),1);
       	}else{
             for(int i = -w ; i >= 0 ; i--)
-   	      SetXY(StartX-i,StartY-i*m,1);
+   	      SetXY(StartX-i,(int)((float)StartY-i*m),1);
       	}
     }else{
       if (h!=0)
       	m = (float)w / h;
       if (h>0){
           for(int i = 0 ; i <= h ; i++)
-            SetXY(StartX+i*m,StartY+i,1);	
+            SetXY((int)((float)StartX+i*m),StartY+i,1);	
       }else{
           for(int i = -h ; i >= 0 ; i--)
-            SetXY(StartX-i*m,StartY-i,1);
+            SetXY((int)((float)StartX-i*m),StartY-i,1);
       }
     }
 }
@@ -394,7 +394,7 @@ void AddValue(OLEDCHART *OLC,int value){
     if (OLC->NowX==OLC->Offset){   //draw value when NowX is euqal to Offset
 
         //if(abs(value) < OLC->MaxY) Val=value/((float)OLC->MaxY/(float)OLC->Height);
-        int Val = value /((float)OLC->MaxY/(float)OLC->Height);
+        int Val = (int)((float)value /((float)OLC->MaxY/(float)OLC->Height));
         for (int i=0;i<OLC->Height;i++) SetXY(OLC->Left+OLC->NowCount,OLC->Top+i,0);  //clear column        
 
         DrawLine(OLC->Left+OLC->NowCount-1,

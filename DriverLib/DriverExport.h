@@ -1,7 +1,8 @@
 #ifndef DriverUse_H
 
-#define DriverUse_H
 #include "CoreDefine.h"
+#define DriverUse_H
+
 /*************************************************************************
 ;                       ISR MESSAGE PIRORITY
 *************************************************************************/

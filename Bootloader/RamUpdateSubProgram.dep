@@ -14,7 +14,7 @@
       <file>$PROJ_DIR$\Debug\Exe\RamUpdateSubProgram.h</file>
       <file>$PROJ_DIR$\Debug\Obj\Flash.pbi</file>
       <file>$TOOLKIT_DIR$\inc\clib\sysmac.h</file>
-      <file>$TOOLKIT_DIR$\inc\MSP430X16X.h</file>
+      <file>$TOOLKIT_DIR$\inc\msp430x16x.h</file>
       <file>$PROJ_DIR$\Debug\Obj\ECC.pbi</file>
       <file>$PROJ_DIR$\Debug\Obj\BasicOLED.r43</file>
       <file>$PROJ_DIR$\BootloaderExport.h</file>
@@ -36,7 +36,6 @@
       <file>$PROJ_DIR$\Debug\Obj\AccessFlash.pbi</file>
       <file>$PROJ_DIR$\System\Update\globol.h</file>
       <file>$TOOLKIT_DIR$\inc\clib\math.h</file>
-      <file>$TOOLKIT_DIR$\lib\clib\cl430f.r43</file>
       <file>$PROJ_DIR$\Debug\Exe\RamUpdateSubProgram.d43</file>
       <file>$PROJ_DIR$\Debug\Obj\Flash.r43</file>
       <file>$TOOLKIT_DIR$\config\multiplier.xcl</file>
@@ -47,7 +46,7 @@
       <outputs>
         <tool>
           <name>XLINK</name>
-          <file> 23 14 31</file>
+          <file> 30</file>
         </tool>
         <tool>
           <name>ULP430</name>
@@ -152,7 +151,7 @@
       <outputs>
         <tool>
           <name>ICC430</name>
-          <file> 32</file>
+          <file> 31</file>
         </tool>
         <tool>
           <name>BICOMP</name>
@@ -172,16 +171,10 @@
     </file>
     <file>
       <name>$PROJ_DIR$\Debug\Exe\RamUpdateSubProgram.d43</name>
-      <outputs>
-        <tool>
-          <name>XLINK</name>
-          <file> 23 14</file>
-        </tool>
-      </outputs>
       <inputs>
         <tool>
           <name>XLINK</name>
-          <file> 16 33 24 10 25 32 17 30</file>
+          <file> 16 32</file>
         </tool>
       </inputs>
     </file>

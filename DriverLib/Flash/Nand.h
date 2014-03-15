@@ -1,4 +1,4 @@
-#include <MSP430X16X.h>
+#include <msp430.h>
 
 /******************** 測試版 HW ***************************
 #define    CLE  BIT2    //設置CLE為輸出管腳 P3.0

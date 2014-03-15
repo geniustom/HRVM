@@ -30,6 +30,7 @@
       <file>$TOOLKIT_DIR$\inc\msp430f5438a.h</file>
       <file>$TOOLKIT_DIR$\inc\msp430.h</file>
       <file>$PROJ_DIR$\..\Driverlib\CoreDefine.h</file>
+      <file>$TOOLKIT_DIR$\inc\MSP430X16X.h</file>
     </outputs>
     <file>
       <name>$PROJ_DIR$\System\BootLoader.c</name>
@@ -115,7 +116,7 @@
       <file>$TOOLKIT_DIR$\config\multiplier.xcl</file>
       <file>$TOOLKIT_DIR$\lib\clib\cl430f.r43</file>
       <file>$PROJ_DIR$\System\RamUpdateSubProgram.h</file>
-      <file>$TOOLKIT_DIR$\inc\MSP430x16x.h</file>
+      <file>$TOOLKIT_DIR$\inc\MSP430X16X.h</file>
       <file>$PROJ_DIR$\System\OLED.C</file>
       <file>$PROJ_DIR$\System\Update\AccessFlash.h</file>
       <file>$PROJ_DIR$\Release\Obj\MainForBootloader.r43</file>

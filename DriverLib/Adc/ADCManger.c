@@ -99,14 +99,14 @@ void Open_ADC(void (*CallBackFP)(),unsigned char CapChanel){
   //Open_TA(TAADC);
 }
 
-
+#ifdef MSP430F16x 
 void Init_DAC(){
   // øÈ•X1V DACº“¿¿πq¿£
   P6DIR |= BIT6;
   DAC12_0CTL = DAC12IR + DAC12AMP_5 + DAC12ENC;
   DAC12_0DAT = 0x0666;
 }
-
+#endif
 
 #pragma vector=ADC_VECTOR
 volatile __interrupt void ADC12ISR (void){
