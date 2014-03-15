@@ -84,6 +84,11 @@ extern unsigned int ERRORCODE;
 extern void ShowErrorCode();
 extern void AddErrorCode(unsigned int ERRORTYPE);
 /*************************************************************************
+;                          CPU FUNCTION
+*************************************************************************/
+extern void Use_XTAL2(void);
+extern void Use_DCO(unsigned long CLK);
+/*************************************************************************
 ;                          GPIO FUNCTION
 *************************************************************************/
 #define USBPIN BIT6
@@ -278,9 +283,7 @@ extern void Init_DAC();
 *************************************************************************/
 #define BatteryArraySize 3
 #define BatteryGridArraySize 20
-extern void Reset();
-extern void Use_XTAL2(void);
-extern void Use_DCO(void);
+
 extern void Open_BattDetect();
 extern void Close_BattDetect();
 extern void PowerOn();

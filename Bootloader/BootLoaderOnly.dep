@@ -31,12 +31,17 @@
       <file>$TOOLKIT_DIR$\inc\msp430.h</file>
       <file>$PROJ_DIR$\..\Driverlib\CoreDefine.h</file>
       <file>$TOOLKIT_DIR$\inc\MSP430X16X.h</file>
+      <file>$PROJ_DIR$\..\DriverLib\CoreDriver\CPU\CPU.c</file>
       <file>$PROJ_DIR$\..\DriverLib\CoreDriver\Flash\Flash.c</file>
       <file>$PROJ_DIR$\..\DriverLib\CoreDriver\Uart\Uart.c</file>
     </outputs>
     <file>
       <name>$PROJ_DIR$\System\BootLoader.c</name>
       <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 16</file>
+        </tool>
         <tool>
           <name>BICOMP</name>
           <file> 9</file>

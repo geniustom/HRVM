@@ -429,12 +429,7 @@ void UART0RX(unsigned char RX){
 void BootLoaderMain(void(*Run_MainFunct)(void),void(*DoNormalRxFunct)(unsigned char RxData)){ //傳入UART ISR與子程式MAIN的函數指標
     WDTCTL = WDTPW | WDTHOLD;                // Stop WDT
     
-    BCSCTL1 &= ~XT2OFF; // XT2= HF XTAL &= ~XT2OFF;
-    do{
-      IFG1 &= ~OFIFG; // Clear OSCFault flag
-      for (int i = 0xFF; i > 0; i--); // Time for flag to set
-    }while ((IFG1 & OFIFG)); // OSCFault flag still set? 
-    BCSCTL2 |= SELM_2+SELS; // MCLK=SMCLK=XT2 (safe)
+    Use_XTAL2();
     
     UpdateP.BufFulltoWrite=0;
     switch(StartUpdatingMode){

@@ -55,6 +55,7 @@
       <file>$PROJ_DIR$\Debug\Obj\MenuUI.pbi</file>
       <file>$PROJ_DIR$\Menu\MAP.h</file>
       <file>$PROJ_DIR$\Debug\Obj\Proj_8Z08.pbd</file>
+      <file>$PROJ_DIR$\..\DriverLib\ExternDriver\Power\Power.c</file>
     </outputs>
     <file>
       <name>$PROJ_DIR$\DateTime\Datetime.c</name>
