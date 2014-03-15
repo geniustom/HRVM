@@ -2038,6 +2038,9 @@
     </group>
   </group>
   <file>
+    <name>$PROJ_DIR$\CoreDefine.h</name>
+  </file>
+  <file>
     <name>$PROJ_DIR$\DriverExport.h</name>
   </file>
   <file>

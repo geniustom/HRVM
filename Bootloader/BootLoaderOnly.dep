@@ -29,9 +29,12 @@
       <file>$PROJ_DIR$\Debug\Obj\MainForBootloader.pbi</file>
       <file>$TOOLKIT_DIR$\inc\msp430f5438a.h</file>
       <file>$TOOLKIT_DIR$\inc\msp430.h</file>
-      <file>$PROJ_DIR$\..\Driverlib\CoreDefine.h</file>
+      <file>$PROJ_DIR$\..\DriverLib\CoreDefine.h</file>
       <file>$TOOLKIT_DIR$\inc\MSP430X16X.h</file>
+      <file>$PROJ_DIR$\System\&lt;invalid loc&gt;</file>
+      <file>$PROJ_DIR$\..\Driverlib\CoreDriver\CoreDriver.h</file>
       <file>$PROJ_DIR$\..\DriverLib\CoreDriver\CPU\CPU.c</file>
+      <file>$PROJ_DIR$\..\DriverLib\ISRMessage.c</file>
       <file>$PROJ_DIR$\..\DriverLib\CoreDriver\Flash\Flash.c</file>
       <file>$PROJ_DIR$\..\DriverLib\CoreDriver\Uart\Uart.c</file>
     </outputs>
@@ -50,11 +53,11 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 14 1 0 23 22 21 7 5</file>
+          <file> 14 1 0 26 23 22 21 7 5</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 14 1 0 23 22 21 7 5</file>
+          <file> 14 1 0 26 25</file>
         </tool>
       </inputs>
     </file>

@@ -2,7 +2,7 @@
 
 <project>
   <fileVersion>2</fileVersion>
-  <fileChecksum>3632179317</fileChecksum>
+  <fileChecksum>3323445156</fileChecksum>
   <configuration>
     <name>Debug</name>
     <outputs>
@@ -91,6 +91,7 @@
       <file>$PROJ_DIR$\CoreDriver\Flash\Flash.c</file>
       <file>$PROJ_DIR$\ExternDriver\Power\Power.c</file>
       <file>$PROJ_DIR$\CoreDriver\CPU\CPU.c</file>
+      <file>$PROJ_DIR$\CoreDriver\CoreDriver.h</file>
       <file>$PROJ_DIR$\CoreDriver\Adc\ADCManger.c</file>
       <file>$PROJ_DIR$\ExternDriver\Buzzer\Buzzer.c</file>
       <file>$PROJ_DIR$\ExternDriver\Flash\EccStep.c</file>
@@ -316,7 +317,7 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 21 1 35 36 65 68</file>
+          <file> 21 85 1 35 36 65 68</file>
         </tool>
       </inputs>
     </file>
@@ -335,7 +336,7 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 21 1 35 36 65 68</file>
+          <file> 21 85 1 35 36 65 68</file>
         </tool>
       </inputs>
     </file>
@@ -401,7 +402,7 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 21 1 35 36 65 68</file>
+          <file> 21 85 1 35 36 65 68</file>
         </tool>
       </inputs>
     </file>
@@ -420,7 +421,7 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 21 1 35 36 65 68</file>
+          <file> 21 85 1 35 36 65 68</file>
         </tool>
       </inputs>
     </file>
@@ -439,7 +440,7 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 21 1 35 36 65 68</file>
+          <file> 21 85 1 35 36 65 68</file>
         </tool>
       </inputs>
     </file>
@@ -458,7 +459,7 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 21 1 35 36 65 68</file>
+          <file> 21 85 1 35 36 65 68</file>
         </tool>
       </inputs>
     </file>
@@ -477,7 +478,7 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 21 1 35 36 65 68</file>
+          <file> 21 85 1 35 36 65 68</file>
         </tool>
       </inputs>
     </file>
@@ -534,7 +535,7 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 48 21 1 35 36 65 68 72 0 61</file>
+          <file> 48 21 85 1 35 36 65 68 72 0 61</file>
         </tool>
       </inputs>
     </file>
@@ -553,7 +554,7 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 21 1 35 36 65 68</file>
+          <file> 21 85 1 35 36 65 68</file>
         </tool>
       </inputs>
     </file>
@@ -572,7 +573,7 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 21 1 35 36 65 68</file>
+          <file> 21 85 1 35 36 65 68</file>
         </tool>
       </inputs>
     </file>
@@ -591,7 +592,7 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 21 1 35 36 65 68</file>
+          <file> 21 85 1 35 36 65 68</file>
         </tool>
       </inputs>
     </file>
@@ -610,7 +611,7 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 21 1 35 36 65 68</file>
+          <file> 21 85 1 35 36 65 68</file>
         </tool>
       </inputs>
     </file>
@@ -629,7 +630,7 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 21 1 35 36 65 68</file>
+          <file> 21 85 1 35 36 65 68</file>
         </tool>
       </inputs>
     </file>
@@ -648,7 +649,7 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 21 1 35 36 65 68</file>
+          <file> 21 85 1 35 36 65 68</file>
         </tool>
       </inputs>
     </file>
@@ -667,7 +668,7 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 21 1 35 36 65 68</file>
+          <file> 21 85 1 35 36 65 68</file>
         </tool>
       </inputs>
     </file>
@@ -686,7 +687,7 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 81 35 36 65 68 21 1</file>
+          <file> 81 35 36 65 68 21 85 1</file>
         </tool>
       </inputs>
     </file>
@@ -705,7 +706,7 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 81 35 36 65 68 21 1</file>
+          <file> 81 35 36 65 68 21 85 1</file>
         </tool>
       </inputs>
     </file>
