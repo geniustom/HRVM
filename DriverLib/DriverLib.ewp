@@ -33,7 +33,7 @@
         </option>
         <option>
           <name>GOutputBinary</name>
-          <state>1</state>
+          <state>0</state>
         </option>
         <option>
           <name>AssemblerOnly</name>
@@ -46,19 +46,19 @@
         <option>
           <name>GRuntimeLibSelect</name>
           <version>0</version>
-          <state>4</state>
+          <state>2</state>
         </option>
         <option>
           <name>RTDescription</name>
-          <state>To be used with the legacy C runtime library.</state>
+          <state>Use the full configuration of the C/EC++ runtime library. Full locale interface, C locale, file descriptor support, multibytes in printf and scanf, and hex floats in strtod.</state>
         </option>
         <option>
           <name>RTConfigPath</name>
-          <state></state>
+          <state>$TOOLKIT_DIR$\LIB\DLIB\dl430xsff.h</state>
         </option>
         <option>
           <name>RTLibraryPath</name>
-          <state>$TOOLKIT_DIR$\LIB\CLIB\cl430f.r43</state>
+          <state>$TOOLKIT_DIR$\LIB\DLIB\dl430xsff.r43</state>
         </option>
         <option>
           <name>Input variant</name>
@@ -67,7 +67,7 @@
         </option>
         <option>
           <name>Input description</name>
-          <state>Full formatting.</state>
+          <state>No specifier n, no float or long long.</state>
         </option>
         <option>
           <name>Output variant</name>
@@ -76,12 +76,12 @@
         </option>
         <option>
           <name>Output description</name>
-          <state>Full formatting.</state>
+          <state>No specifier a or A.</state>
         </option>
         <option>
           <name>GRuntimeLibSelectSlave</name>
           <version>0</version>
-          <state>4</state>
+          <state>2</state>
         </option>
         <option>
           <name>OGCore</name>
@@ -309,7 +309,7 @@
         </option>
         <option>
           <name>CCRadioModuleType</name>
-          <state>1</state>
+          <state>0</state>
         </option>
         <option>
           <name>CCRadioModuleTypeSlave</name>
@@ -706,11 +706,11 @@
         </option>
         <option>
           <name>XclOverride</name>
-          <state>1</state>
+          <state>0</state>
         </option>
         <option>
           <name>XclFile</name>
-          <state>$PROJ_DIR$\lnk430F1612.xcl</state>
+          <state>$TOOLKIT_DIR$\CONFIG\lnk430F5438A.xcl</state>
         </option>
         <option>
           <name>XclFileSlave</name>
@@ -1993,6 +1993,12 @@
     </group>
   </group>
   <group>
+    <name>ErrorControl</name>
+    <file>
+      <name>$PROJ_DIR$\ErrorControl\ErrorCode.c</name>
+    </file>
+  </group>
+  <group>
     <name>ExternDriver</name>
     <group>
       <name>Button</name>
@@ -2034,6 +2040,39 @@
       </file>
       <file>
         <name>$PROJ_DIR$\ExternDriver\RTC\RTC_Alarm.c</name>
+      </file>
+    </group>
+    <group>
+      <name>SDCard</name>
+      <group>
+        <name>FatFs</name>
+        <file>
+          <name>$PROJ_DIR$\ExternDriver\SDCard\FatFs\diskio.h</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\ExternDriver\SDCard\FatFs\ff.c</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\ExternDriver\SDCard\FatFs\ff.h</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\ExternDriver\SDCard\FatFs\ffconf.h</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\ExternDriver\SDCard\FatFs\integer.h</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\ExternDriver\SDCard\FatFs\mmc.c</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\ExternDriver\SDCard\FatFs\mmc.h</name>
+        </file>
+      </group>
+      <file>
+        <name>$PROJ_DIR$\ExternDriver\SDCard\HAL_SDCard.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\ExternDriver\SDCard\HAL_SDCard.h</name>
       </file>
     </group>
   </group>

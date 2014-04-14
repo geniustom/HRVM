@@ -62,7 +62,7 @@ void RefreshFIXFunctionPoint();
 //extern void FSave_Data(unsigned long Page_index,unsigned char *Databuff);
 //extern void Block_Erase(unsigned long Page_index);
 //-------------------------------------------------------------Fix Block--------------------------
-void main( void );
+//void main( void );
 void CheckUpdatePacket(unsigned char RxData);
 void UART0RX(unsigned char RX);
 void copy_update2ram (void);

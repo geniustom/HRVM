@@ -38,6 +38,8 @@ void DoNormalRx(unsigned char RX){  //ECHO THE DATA
 void main( void ){
   BootLoaderMain(Run_Main,DoNormalRx);
 }
+
+
 /*
 #pragma vector = PORT2_VECTOR
 __interrupt void P2ISR(void)   //±`ºA1..­t½tÄ²µoISR

@@ -1,4 +1,4 @@
-//#define Debug
+#define Debug
 
 
 #ifdef Debug
@@ -23,12 +23,15 @@ FlashStruct FS;
 void Init_CLK(void)
 {
     WDTCTL = WDTPW | WDTHOLD;                // Stop WDT
+ /*
     BCSCTL1 &= ~XT2OFF; // XT2= HF XTAL &= ~XT2OFF;
     do{
       IFG1 &= ~OFIFG; // Clear OSCFault flag
       for (int i = 0xFF; i > 0; i--); // Time for flag to set
     }while ((IFG1 & OFIFG)); // OSCFault flag still set? 
     BCSCTL2 |= SELM_2+SELS; // MCLK=SMCLK=XT2 (safe)
+*/
+    Use_DCO(25000000);
 }
 
 
@@ -46,6 +49,12 @@ void ButtonLongPress(){
 void TestADCISR(){
   if(AD_Struct.ADIndex%256==0){Beep1Sec();}
 }
+
+void main(){
+  Init_CLK();
+  Init_SD();
+}
+
 
 /*
 void main(){
@@ -77,18 +86,19 @@ void main(){
 }
 */
 
+/*
 void main(){
   Init_CLK();
   Init_Flash();
   _EINT(); 	
   P6DIR|=BIT5;
   InitFlashStruct(&FS,USB,0,0);
-  /*
-  for(unsigned long i=0;i<131072;i++){
-    nAddr = i; // 擦除塊地址
-    BlockErase(nAddr,1);
-  }
-  */
+
+//  for(unsigned long i=0;i<131072;i++){
+//    nAddr = i; // 擦除塊地址
+//    BlockErase(nAddr,1);
+//  }
+
   for(unsigned long i=0;i<131072;i++){
     nAddr = i; // 擦除塊地址
     MaxThisPage=0;
@@ -122,7 +132,7 @@ void main(){
     MaxERRbytePerPage=MAX(MaxERRbytePerPage,MaxThisPage);
   }
 }
-
+*/
 
 
 /*
