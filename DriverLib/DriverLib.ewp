@@ -67,7 +67,7 @@
         </option>
         <option>
           <name>Input description</name>
-          <state>No specifier n, no float or long long.</state>
+          <state>Full formatting.</state>
         </option>
         <option>
           <name>Output variant</name>
@@ -76,7 +76,7 @@
         </option>
         <option>
           <name>Output description</name>
-          <state>No specifier a or A.</state>
+          <state>Full formatting.</state>
         </option>
         <option>
           <name>GRuntimeLibSelectSlave</name>
@@ -2073,6 +2073,9 @@
       </file>
       <file>
         <name>$PROJ_DIR$\ExternDriver\SDCard\HAL_SDCard.h</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\ExternDriver\SDCard\SDCard.c</name>
       </file>
     </group>
   </group>

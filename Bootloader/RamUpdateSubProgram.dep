@@ -6,27 +6,28 @@
   <configuration>
     <name>Debug</name>
     <outputs>
-      <file>$PROJ_DIR$\Debug\Exe\RamUpdateSubProgram.d43</file>
       <file>$PROJ_DIR$\System\Update\AccessFlash.c</file>
+      <file>$PROJ_DIR$\System\Update\ECC.c</file>
       <file>$PROJ_DIR$\System\Update\BasicOLED.c</file>
       <file>$PROJ_DIR$\System\Update\Flash.c</file>
-      <file>$PROJ_DIR$\System\Update\ECC.c</file>
       <file>$PROJ_DIR$\System\ProcessUpdate.c</file>
+      <file>$TOOLKIT_DIR$\config\multiplier.xcl</file>
       <file>$PROJ_DIR$\Debug\Obj\Flash.pbi</file>
       <file>$TOOLKIT_DIR$\inc\clib\sysmac.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\BasicOLED.r43</file>
-      <file>$PROJ_DIR$\BootloaderExport.h</file>
-      <file>$PROJ_DIR$\lnk430F1612_RAM.xcl</file>
-      <file>$PROJ_DIR$\Debug\Exe\RamUpdateSubProgram.ulp</file>
-      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
-      <file>$TOOLKIT_DIR$\inc\in430.h</file>
       <file>$PROJ_DIR$\Debug\Obj\ECC.pbi</file>
-      <file>$TOOLKIT_DIR$\inc\msp430x16x.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\ProcessUpdate.r43</file>
-      <file>$PROJ_DIR$\System\Update\Flash.h</file>
       <file>$PROJ_DIR$\System\Update\OLED.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\ProcessUpdate.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\BasicOLED.r43</file>
+      <file>$TOOLKIT_DIR$\inc\in430.h</file>
+      <file>$PROJ_DIR$\BootloaderExport.h</file>
+      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$PROJ_DIR$\lnk430F1612_RAM.xcl</file>
       <file>$PROJ_DIR$\Debug\Obj\BasicOLED.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\msp430x16x.h</file>
+      <file>$PROJ_DIR$\Debug\Exe\RamUpdateSubProgram.d43</file>
+      <file>$PROJ_DIR$\System\Update\Flash.h</file>
       <file>$PROJ_DIR$\Debug\Obj\ProcessUpdate.pbi</file>
+      <file>$PROJ_DIR$\Debug\Exe\RamUpdateSubProgram.ulp</file>
       <file>$PROJ_DIR$\System\Update\PortManager.h</file>
       <file>$PROJ_DIR$\Debug\Obj\AccessFlash.r43</file>
       <file>$PROJ_DIR$\Debug\Obj\ECC.r43</file>
@@ -35,37 +36,63 @@
       <file>$PROJ_DIR$\System\Update\globol.h</file>
       <file>$TOOLKIT_DIR$\inc\clib\math.h</file>
       <file>$PROJ_DIR$\Debug\Obj\Flash.r43</file>
-      <file>$TOOLKIT_DIR$\config\multiplier.xcl</file>
     </outputs>
     <file>
-      <name>$PROJ_DIR$\Debug\Exe\RamUpdateSubProgram.d43</name>
-      <inputs>
+      <name>[ROOT_NODE]</name>
+      <outputs>
         <tool>
           <name>XLINK</name>
-          <file> 10 29</file>
+          <file> 18</file>
         </tool>
-      </inputs>
+        <tool>
+          <name>ULP430</name>
+          <file> 21</file>
+        </tool>
+      </outputs>
     </file>
     <file>
       <name>$PROJ_DIR$\System\Update\AccessFlash.c</name>
       <outputs>
         <tool>
           <name>BICOMP</name>
-          <file> 25</file>
+          <file> 26</file>
         </tool>
         <tool>
           <name>ICC430</name>
-          <file> 22</file>
+          <file> 23</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 21 26 15 13 12 24 17</file>
+          <file> 22 27 17 12 14 25 19</file>
         </tool>
         <tool>
           <name>ICC430</name>
-          <file> 21 26 15 13 12 24 17</file>
+          <file> 22 27 17 12 14 25 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\System\Update\ECC.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 8</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 24</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 19 22 27 17 12 14</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 19 22 27 17 12 14</file>
         </tool>
       </inputs>
     </file>
@@ -74,21 +101,21 @@
       <outputs>
         <tool>
           <name>BICOMP</name>
-          <file> 19</file>
+          <file> 16</file>
         </tool>
         <tool>
           <name>ICC430</name>
-          <file> 8</file>
+          <file> 11</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 18 26 15 13 12 27 7</file>
+          <file> 9 27 17 12 14 28 7</file>
         </tool>
         <tool>
           <name>ICC430</name>
-          <file> 18 26 15 13 12 27 7</file>
+          <file> 9 27 17 12 14 28 7</file>
         </tool>
       </inputs>
     </file>
@@ -101,55 +128,19 @@
         </tool>
         <tool>
           <name>ICC430</name>
-          <file> 28</file>
+          <file> 29</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 17 21 26 15 13 12</file>
+          <file> 19 22 27 17 12 14</file>
         </tool>
         <tool>
           <name>ICC430</name>
-          <file> 17 21 26 15 13 12</file>
+          <file> 19 22 27 17 12 14</file>
         </tool>
       </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\System\Update\ECC.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 14</file>
-        </tool>
-        <tool>
-          <name>ICC430</name>
-          <file> 23</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 17 21 26 15 13 12</file>
-        </tool>
-        <tool>
-          <name>ICC430</name>
-          <file> 17 21 26 15 13 12</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>[ROOT_NODE]</name>
-      <outputs>
-        <tool>
-          <name>XLINK</name>
-          <file> 0</file>
-        </tool>
-        <tool>
-          <name>ULP430</name>
-          <file> 11</file>
-        </tool>
-      </outputs>
     </file>
     <file>
       <name>$PROJ_DIR$\System\ProcessUpdate.c</name>
@@ -160,17 +151,26 @@
         </tool>
         <tool>
           <name>ICC430</name>
-          <file> 16</file>
+          <file> 10</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 26 15 13 12 9</file>
+          <file> 27 17 12 14 13</file>
         </tool>
         <tool>
           <name>ICC430</name>
-          <file> 26 15 13 12 9</file>
+          <file> 27 17 12 14 13</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Exe\RamUpdateSubProgram.d43</name>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 15 5</file>
         </tool>
       </inputs>
     </file>

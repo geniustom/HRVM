@@ -7,19 +7,29 @@
 #include "HAL_SDCard.h"
 
 // Pins from MSP430 connected to the SD Card
-#define SPI_SIMO        BIT1
-#define SPI_SOMI        BIT2
-#define SPI_CLK         BIT3
-#define SD_CS           BIT7
+#define SD_CLK          BIT0
+#define SD_SIMO         BIT4
+#define SD_SOMI         BIT5
+#define SD_CS           BIT3
 
 // Ports
-#define SPI_SEL         P4SEL
-#define SPI_DIR         P4DIR
-#define SPI_OUT         P4OUT
-#define SPI_REN         P4REN
-#define SD_CS_SEL       P3SEL
-#define SD_CS_OUT       P3OUT
-#define SD_CS_DIR       P3DIR
+#define SD_SEL          P10SEL
+#define SD_DIR          P10DIR
+#define SD_OUT          P10OUT
+#define SD_REN          P10REN
+#define SD_CS_SEL       P10SEL
+#define SD_CS_OUT       P10OUT
+#define SD_CS_DIR       P10DIR
+
+// UCXX SPI Controller
+#define SDUCxCTL0       UCA3CTL0
+#define SDUCxCTL1       UCA3CTL1
+#define SDUCxBR0        UCA3BR0
+#define SDUCxBR1        UCA3BR1
+#define SDUCxSTAT       UCA3STAT
+#define SDUCxIFG        UCA3IFG
+#define SDUCxTXUBF      UCA3TXBUF
+#define SDUCxRXUBF      UCA3RXBUF
 
 /***************************************************************************//**
  * @brief   Initialize SD Card
@@ -30,25 +40,25 @@
 void SDCard_init(void)
 {
     // Port initialization for SD Card operation
-    SPI_SEL |= SPI_CLK + SPI_SOMI + SPI_SIMO;
-    SPI_DIR |= SPI_CLK + SPI_SIMO;
-    SPI_REN |= SPI_SOMI;                                   // Pull-Ups on SD Card SOMI
-    SPI_OUT |= SPI_SOMI;                                   // Certain SD Card Brands need pull-ups
+    SD_SEL |= SD_CLK + SD_SOMI + SD_SIMO;
+    SD_DIR |= SD_CLK + SD_SIMO;
+    SD_REN |= SD_SOMI;                                   // Pull-Ups on SD Card SOMI
+    SD_OUT |= SD_SOMI;                                   // Certain SD Card Brands need pull-ups
 
     SD_CS_SEL &= ~SD_CS;
     SD_CS_OUT |= SD_CS;
     SD_CS_DIR |= SD_CS;
 
     // Initialize USCI_B1 for SPI Master operation
-    UCB1CTL1 |= UCSWRST;                                   // Put state machine in reset
-    UCB1CTL0 = UCCKPL + UCMSB + UCMST + UCMODE_0 + UCSYNC; // 3-pin, 8-bit SPI master
+    SDUCxCTL1 |= UCSWRST;                                   // Put state machine in reset
+    SDUCxCTL0 = UCCKPL + UCMSB + UCMST + UCMODE_0 + UCSYNC; // 3-pin, 8-bit SPI master
     // Clock polarity select - The inactive state is high
     // MSB first
-    UCB1CTL1 = UCSWRST + UCSSEL_2;                         // Use SMCLK, keep RESET
-    UCB1BR0 = 63;                                          // Initial SPI clock must be <400kHz
-    UCB1BR1 = 0;                                           // f_UCxCLK = 25MHz/63 = 397kHz
-    UCB1CTL1 &= ~UCSWRST;                                  // Release USCI state machine
-    UCB1IFG &= ~UCRXIFG;
+    SDUCxCTL1 = UCSWRST + UCSSEL_2;                         // Use SMCLK, keep RESET
+    SDUCxBR0 = 63;                                          // Initial SPI clock must be <400kHz
+    SDUCxBR1 = 0;                                           // f_UCxCLK = 25MHz/63 = 397kHz
+    SDUCxCTL1 &= ~UCSWRST;                                  // Release USCI state machine
+    SDUCxIFG &= ~UCRXIFG;
 }
 
 /***************************************************************************//**
@@ -61,10 +71,10 @@ void SDCard_init(void)
 
 void SDCard_fastMode(void)
 {
-    UCB1CTL1 |= UCSWRST;                                   // Put state machine in reset
-    UCB1BR0 = 2;                                           // f_UCxCLK = 25MHz/2 = 12.5MHz
-    UCB1BR1 = 0;
-    UCB1CTL1 &= ~UCSWRST;                                  // Release USCI state machine
+    SDUCxCTL1 |= UCSWRST;                                   // Put state machine in reset
+    SDUCxBR0 = 1;                                           // f_UCxCLK = 25MHz/2 = 12.5MHz
+    SDUCxBR1 = 0;
+    SDUCxCTL1 &= ~UCSWRST;                                  // Release USCI state machine
 }
 
 /***************************************************************************//**
@@ -80,14 +90,14 @@ void SDCard_readFrame(uint8_t *pBuffer, uint16_t size)
 
     __disable_interrupt();                                 // Make this operation atomic
 
-    UCB1IFG &= ~UCRXIFG;                                   // Ensure RXIFG is clear
+    SDUCxIFG &= ~UCRXIFG;                                   // Ensure RXIFG is clear
 
     // Clock the actual data transfer and receive the bytes
     while (size--){
-        while (!(UCB1IFG & UCTXIFG)) ;                     // Wait while not ready for TX
-        UCB1TXBUF = 0xff;                                  // Write dummy byte
-        while (!(UCB1IFG & UCRXIFG)) ;                     // Wait for RX buffer (full)
-        *pBuffer++ = UCB1RXBUF;
+        while (!(SDUCxIFG & UCTXIFG)) ;                     // Wait while not ready for TX
+        SDUCxTXUBF = 0xff;                                  // Write dummy byte
+        while (!(SDUCxIFG & UCRXIFG)) ;                     // Wait for RX buffer (full)
+        *pBuffer++ = SDUCxRXUBF;
     }
 
     __bis_SR_register(gie);                                // Restore original GIE state
@@ -111,12 +121,12 @@ void SDCard_sendFrame(uint8_t *pBuffer, uint16_t size)
     // in order to optimize transfer speed, however we need to take care of the
     // resulting overrun condition.
     while (size--){
-        while (!(UCB1IFG & UCTXIFG)) ;                     // Wait while not ready for TX
-        UCB1TXBUF = *pBuffer++;                            // Write byte
+        while (!(SDUCxIFG & UCTXIFG)) ;                     // Wait while not ready for TX
+        SDUCxTXUBF = *pBuffer++;                            // Write byte
     }
-    while (UCB1STAT & UCBUSY) ;                            // Wait for all TX/RX to finish
+    while (SDUCxSTAT & UCBUSY) ;                            // Wait for all TX/RX to finish
 
-    UCB1RXBUF;                                             // Dummy read to empty RX buffer
+    SDUCxRXUBF;                                             // Dummy read to empty RX buffer
                                                            // and clear any overrun conditions
 
     __bis_SR_register(gie);                                // Restore original GIE state
@@ -147,3 +157,5 @@ void SDCard_setCSLow(void)
 /***************************************************************************//**
  * @}
  ******************************************************************************/
+
+

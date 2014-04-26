@@ -46,19 +46,19 @@
         <option>
           <name>GRuntimeLibSelect</name>
           <version>0</version>
-          <state>4</state>
+          <state>2</state>
         </option>
         <option>
           <name>RTDescription</name>
-          <state>Use the legacy C runtime library.</state>
+          <state>Use the full configuration of the C/EC++ runtime library. Full locale interface, C locale, file descriptor support, multibytes in printf and scanf, and hex floats in strtod.</state>
         </option>
         <option>
           <name>RTConfigPath</name>
-          <state></state>
+          <state>$TOOLKIT_DIR$\LIB\DLIB\dl430xsff.h</state>
         </option>
         <option>
           <name>RTLibraryPath</name>
-          <state>$TOOLKIT_DIR$\LIB\CLIB\cl430f.r43</state>
+          <state>$TOOLKIT_DIR$\LIB\DLIB\dl430xsff.r43</state>
         </option>
         <option>
           <name>Input variant</name>
@@ -81,7 +81,7 @@
         <option>
           <name>GRuntimeLibSelectSlave</name>
           <version>0</version>
-          <state>4</state>
+          <state>2</state>
         </option>
         <option>
           <name>OGCore</name>

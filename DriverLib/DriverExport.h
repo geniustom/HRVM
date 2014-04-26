@@ -184,6 +184,10 @@ extern void StepRead_Flash(FlashStruct *F);
 //extern int WriteByte(unsigned int nCol,unsigned long nRow,unsigned char nValue);
 //extern unsigned char ReadByte(unsigned int nCol,unsigned long nRow);
 /*************************************************************************
+;                          SD CARD function
+*************************************************************************/
+#include "ExternDriver/SDCard/HAL_SDCard.h"
+/*************************************************************************
 ;                          BUZZER IO FUNCTION
 *************************************************************************/
 #define BuzzerPin BIT3

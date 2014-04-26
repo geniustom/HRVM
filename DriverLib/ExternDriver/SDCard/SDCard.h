@@ -9,10 +9,10 @@
 #include "HAL_SDCard.h"
 #include "Fatfs/ff.h"
 
-extern void SDCard(void);
+// Function Test
 extern void WriteTest(void);
 extern void ContinueWriteTest(void);
-
+extern FRESULT WriteFile(char* fileName, char* text, WORD size);
 
 #endif /* SDCARD_H */
 
