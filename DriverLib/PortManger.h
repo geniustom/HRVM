@@ -72,7 +72,7 @@ extern char GetGPIO(int portnum);
 
 
 extern void SetButtonTimer();
-extern void P2SetButtonIO(ButtonStruct *Button,unsigned char En,unsigned char PortNum,unsigned char PortSetting,void (*fP)(),void (*fLP)());
+extern void PxSetButtonIO(ButtonStruct *Button,unsigned char En,unsigned char PortNum,unsigned char PortSetting,void (*fP)(),void (*fLP)());
 extern void CheckButtonPress(ButtonStruct *Button);
 extern void CheckButton(ButtonStruct *Button);
-extern ButtonStruct ButtonLeft,ButtonRight,ButtonEnter;
+//extern ButtonStruct ButtonLeft,ButtonRight,ButtonCenter;

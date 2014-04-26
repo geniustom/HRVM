@@ -3,8 +3,8 @@
 ISRMessageQueue ISRMSG;
 
 volatile void Init_Devicelib(){
-  Init_OLED();
-  En_OLED();
+  //Init_OLED();
+  //En_OLED();
   Init_TA();
   Init_TB();
   ClearISRMessage(&ISRMSG);
@@ -69,6 +69,17 @@ void ClearISRMessage(ISRMessageQueue *IM){
 }
 
 
+// BUTTON 用PORT1時使用
+#pragma vector = PORT1_VECTOR
+__interrupt void P1ISR(void){   //常態1..負緣觸發ISR
+  ButtonDetect();
+  GPIODetect();
+  //LPM3_EXIT;
+  P1IFG = 0;  //清除FLAG..不清會持續中斷
+}
+
+/*
+// BUTTON 用PORT2時使用
 #pragma vector = PORT2_VECTOR
 __interrupt void P2ISR(void){   //常態1..負緣觸發ISR
   ButtonDetect();
@@ -76,7 +87,7 @@ __interrupt void P2ISR(void){   //常態1..負緣觸發ISR
   LPM3_EXIT;
   P2IFG = 0;  //清除FLAG..不清會持續中斷
 }
-
+*/
 
 #pragma vector = TIMERA0_VECTOR
 __interrupt void Timer_A0(void){  //--------------FOR RTC USE
@@ -93,9 +104,11 @@ __interrupt void Timer_A3(void){
       TACCR1=TAR+TACCR_1;
       break;
     case 4:
+      CheckButton(&ButtonUp);
+      CheckButton(&ButtonDown);
       CheckButton(&ButtonLeft);
       CheckButton(&ButtonRight);
-      CheckButton(&ButtonEnter);
+      CheckButton(&ButtonCenter);
       TACCR2=TAR+TACCR_2;
       break;
   }

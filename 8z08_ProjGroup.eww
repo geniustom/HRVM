@@ -31,10 +31,6 @@
         <project>RTOS</project>
         <configuration>Debug</configuration>
       </member>
-      <member>
-        <project>Proj_8Z08</project>
-        <configuration>Debug</configuration>
-      </member>
     </batchDefinition>
   </batchBuild>
 </workspace>

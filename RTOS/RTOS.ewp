@@ -33,7 +33,7 @@
         </option>
         <option>
           <name>GOutputBinary</name>
-          <state>1</state>
+          <state>0</state>
         </option>
         <option>
           <name>AssemblerOnly</name>
@@ -309,7 +309,7 @@
         </option>
         <option>
           <name>CCRadioModuleType</name>
-          <state>1</state>
+          <state>0</state>
         </option>
         <option>
           <name>CCRadioModuleTypeSlave</name>

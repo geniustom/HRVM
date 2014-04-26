@@ -33,12 +33,16 @@
 
 #define ISRMSG_UART0RX            0x40
 
-#define ISRMSG_LButtonPress       0x51
-#define ISRMSG_RButtonPress       0x52
-#define ISRMSG_CButtonPress       0x53
-#define ISRMSG_LButtonLongPress   0x54
-#define ISRMSG_RButtonLongPress   0x55
-#define ISRMSG_CButtonLongPress   0x56
+#define ISRMSG_UButtonPress       0x51
+#define ISRMSG_DButtonPress       0x52
+#define ISRMSG_LButtonPress       0x53
+#define ISRMSG_RButtonPress       0x54
+#define ISRMSG_CButtonPress       0x55
+#define ISRMSG_UButtonLongPress   0x56
+#define ISRMSG_DButtonLongPress   0x57
+#define ISRMSG_LButtonLongPress   0x58
+#define ISRMSG_RButtonLongPress   0x59
+#define ISRMSG_CButtonLongPress   0x5A
 /*************************************************************************
 ;                          ISR MESSAGE FUNCTION
 *************************************************************************/
@@ -88,9 +92,11 @@ extern void AddErrorCode(unsigned int ERRORTYPE);
 /*************************************************************************
 ;                          Button IO FUNCTION
 *************************************************************************/
-#define ButtonC BIT0
-#define ButtonL BIT1
-#define ButtonR BIT2
+#define ButtonU BIT0
+#define ButtonD BIT1
+#define ButtonL BIT2
+#define ButtonR BIT3
+#define ButtonC BIT4
 
 typedef struct{
   unsigned char PortNum;
@@ -99,8 +105,8 @@ typedef struct{
   void (*LongPress)(void);   //function pointer will be called after long Press
   unsigned char PortSetting;  //每一隻PIN的中斷觸發種類 0:Hi觸發 1:Lo觸發
 }ButtonStruct;
-extern ButtonStruct ButtonLeft,ButtonRight,ButtonEnter;
-extern void P2SetButtonIO(ButtonStruct *Button,unsigned char En,unsigned char PortNum,unsigned char PortSetting,void (*fP)(),void (*fLP)()); 
+extern ButtonStruct ButtonUp,ButtonDown,ButtonLeft,ButtonRight,ButtonCenter;
+extern void PxSetButtonIO(ButtonStruct *Button,unsigned char En,unsigned char PortNum,unsigned char PortSetting,void (*fP)(),void (*fLP)()); 
 extern void CheckButton(ButtonStruct *Button);
 extern void CheckButtonPress(ButtonStruct *Button);
 extern void ButtonDetect();
