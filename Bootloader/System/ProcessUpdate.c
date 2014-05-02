@@ -40,8 +40,6 @@
 */
 
 
-
-#include "msp430x16x.h"        // Standa
 #include "Update/globol.h"        // Standard Equations
 #include "../BootloaderExport.h"
 #define CodeStart 0x2600

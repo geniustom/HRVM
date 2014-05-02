@@ -1,9 +1,57 @@
-//#define Debug
+#define Debug
 
 
 #ifdef Debug
 
 #include "DriverExport.h"
+#include "ExternDriver/LCD_ili9341/LCD_ili9341.h"
+
+void Init_CLK(void)
+{
+    WDTCTL = WDTPW | WDTHOLD;                // Stop WDT
+ /*
+    BCSCTL1 &= ~XT2OFF; // XT2= HF XTAL &= ~XT2OFF;
+    do{
+      IFG1 &= ~OFIFG; // Clear OSCFault flag
+      for (int i = 0xFF; i > 0; i--); // Time for flag to set
+    }while ((IFG1 & OFIFG)); // OSCFault flag still set? 
+    BCSCTL2 |= SELM_2+SELS; // MCLK=SMCLK=XT2 (safe)
+*/
+    //Use_DCO(25000000);
+    Use_XTAL2();
+}
+
+
+
+void main(){
+  Init_CLK();
+  SDCard_init();
+  LCD_Test();
+  while(1){
+    WriteTest();
+  }
+  //ContinueWriteTest();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 #include <Math.h>
 #include <Stdlib.h>
 
@@ -20,34 +68,7 @@ unsigned long ErrCount=0;
 unsigned int ACOL,MaxThisPage=0;
 FlashStruct FS;
 
-void Init_CLK(void)
-{
-    WDTCTL = WDTPW | WDTHOLD;                // Stop WDT
-    BCSCTL1 &= ~XT2OFF; // XT2= HF XTAL &= ~XT2OFF;
-    do{
-      IFG1 &= ~OFIFG; // Clear OSCFault flag
-      for (int i = 0xFF; i > 0; i--); // Time for flag to set
-    }while ((IFG1 & OFIFG)); // OSCFault flag still set? 
-    BCSCTL2 |= SELM_2+SELS; // MCLK=SMCLK=XT2 (safe)
-}
 
-
-
-void ButtonPress(){
-      Dis_OLED();
-}
-
-void ButtonLongPress(){
-      Init_OLED();
-      En_OLED();
-}
-
-
-void TestADCISR(){
-  if(AD_Struct.ADIndex%256==0){Beep1Sec();}
-}
-
-/*
 void main(){
   Init_CLK();
   Init_Flash();
@@ -77,18 +98,19 @@ void main(){
 }
 */
 
+/*
 void main(){
   Init_CLK();
   Init_Flash();
   _EINT(); 	
   P6DIR|=BIT5;
   InitFlashStruct(&FS,USB,0,0);
-  /*
-  for(unsigned long i=0;i<131072;i++){
-    nAddr = i; // 擦除塊地址
-    BlockErase(nAddr,1);
-  }
-  */
+
+//  for(unsigned long i=0;i<131072;i++){
+//    nAddr = i; // 擦除塊地址
+//    BlockErase(nAddr,1);
+//  }
+
   for(unsigned long i=0;i<131072;i++){
     nAddr = i; // 擦除塊地址
     MaxThisPage=0;
@@ -122,7 +144,7 @@ void main(){
     MaxERRbytePerPage=MAX(MaxERRbytePerPage,MaxThisPage);
   }
 }
-
+*/
 
 
 /*
@@ -193,6 +215,25 @@ void main( void ){
     //if(x%360==0){Beep1Sec();}//BuzzerOff();}
   }
 }
+
+
+
+
+void ButtonPress(){
+      Dis_OLED();
+}
+
+void ButtonLongPress(){
+      Init_OLED();
+      En_OLED();
+}
+
+
+void TestADCISR(){
+  if(AD_Struct.ADIndex%256==0){Beep1Sec();}
+}
+
+
 */
 
 #endif

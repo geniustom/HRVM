@@ -57,7 +57,7 @@
         </option>
         <option>
           <name>DdfFileName</name>
-          <state>$TOOLKIT_DIR$\config\MSP430F1612.ddf</state>
+          <state>$TOOLKIT_DIR$\config\MSP430F5438A.ddf</state>
         </option>
         <option>
           <name>ProcTMS</name>
@@ -228,7 +228,7 @@
         <option>
           <name>FetConnection</name>
           <version>2</version>
-          <state>1</state>
+          <state>0</state>
         </option>
         <option>
           <name>SoftwareBreakpointEnable</name>

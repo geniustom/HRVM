@@ -1,7 +1,7 @@
 #include "../RtosExport.h"
 #include "../../DriverLib/DriverExport.h"        // Standard Equations
 
-#define NULL 0
+//#define NULL 0
 
 unsigned int SCH_Error_Report=0;
 

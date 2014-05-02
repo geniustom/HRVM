@@ -1,11 +1,44 @@
-//#define RTOSDebug
+#define RTOSDebug
 #ifdef RTOSDebug  
 
 #include "../DriverLib/DriverExport.h"        // Standard Equations
-#include "Kernel/Pirority_Q.h"
 #include"RtosExport.h"
-#include "App/MenuUI.h"
 
+void ButtonPress(){
+  _NOP();
+}
+
+void ButtonLongPress(){
+  _NOP();
+}
+
+
+void Init_Button(){
+  PxSetButtonIO(&ButtonUp,      1,ButtonU,ButtonU,ButtonPress,ButtonLongPress);
+  PxSetButtonIO(&ButtonDown,    1,ButtonD,ButtonD,ButtonPress,ButtonLongPress);
+  PxSetButtonIO(&ButtonLeft,    1,ButtonL,ButtonL,ButtonPress,ButtonLongPress);
+  PxSetButtonIO(&ButtonRight,   1,ButtonR,ButtonR,ButtonPress,ButtonLongPress);
+  PxSetButtonIO(&ButtonCenter,  1,ButtonC,ButtonC,ButtonPress,ButtonLongPress);  
+}
+
+void main(){
+  Init_Devicelib(); 
+  Init_Device(Init_Button);
+  
+  Init_RTOS();
+  _EINT();
+  while(1){
+    _NOP();
+  }
+  //Run_RTOS(0,show_pic);
+}
+
+
+#endif
+
+
+/*
+#include "App/MenuUI.h"
 
 extern void Reset(void);
 extern void ShowMSGtoOLED(unsigned char *SBUF,unsigned int length,unsigned char Abort);
@@ -55,9 +88,4 @@ void main( void ){
     Run_Main();
   //---------------------------------------------
 }
-
-
-
-#endif
-
-
+*/

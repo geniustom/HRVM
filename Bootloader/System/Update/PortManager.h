@@ -89,9 +89,11 @@
 //#define ACQUISITION {PIEZO | PEDO | VOICE | TEMP | ECG};
 
 //Port1
-#define BUTTONEnter            P2_BIT0
-#define BUTTONLeft             P2_BIT1
-#define BUTTONRight            P2_BIT2
+#define BUTTONUp               P1_BIT0
+#define BUTTONDown             P1_BIT1
+#define BUTTONLeft             P1_BIT2
+#define BUTTONRight            P1_BIT3
+#define BUTTONCenter           P1_BIT4
 
 
 /*============= NAMD FLASH CONTROL BUS INITIAL STATES =================*/ 

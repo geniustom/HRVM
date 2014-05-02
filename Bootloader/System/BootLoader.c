@@ -62,17 +62,12 @@ void RefreshFIXFunctionPoint();
 //extern void FSave_Data(unsigned long Page_index,unsigned char *Databuff);
 //extern void Block_Erase(unsigned long Page_index);
 //-------------------------------------------------------------Fix Block--------------------------
-void main( void );
-unsigned char Init_UART();
-void UART0_SetBaudrate(unsigned long Baudrate);
+//void main( void );
 void CheckUpdatePacket(unsigned char RxData);
-void SendText(unsigned char SBUF[],unsigned int length);
-__interrupt void usart0_rx (void);
+void UART0RX(unsigned char RX);
+void copy_update2ram (void);
 //void Reset(void);
 //void Clear_Watchdog(void);
-void  flash_write_word (unsigned int value,unsigned int address);
-void copy_update2ram (void);
-
 //-------------------------------------------------Dynamic Function Point-------------------------
 //#define Flash_start_addr 0x2200
 __no_init unsigned char USB[512]@0x2100;
@@ -220,9 +215,9 @@ unsigned char SelfFunctionTest(){   //TEST FLASH ROM IS OK,AND TELL PC THE UPLOA
   UpdateP.FwStartPage=CheckPage[CanUsePage];
   WriteTheBlockCanUSE(CanUsePage);
   ShowMSGtoOLED("UP FW WAITING",13,1);
-  Init_UART();
+  OpenUart(0,57600,&UART0RX);
   _EINT();
-  SendText((unsigned char *)SelfTest_STR,6); //°eµ¹PCºÝ¦Û§ÚÀË´ú§¹²¦..¥i¥H¶}©l¶Ç¸ê®Æ¨Ó
+  SendTextToUart(0,(unsigned char *)SelfTest_STR,6); //°eµ¹PCºÝ¦Û§ÚÀË´ú§¹²¦..¥i¥H¶}©l¶Ç¸ê®Æ¨Ó
   return CanUsePage;
 }
 
@@ -255,41 +250,7 @@ void Clear_Watchdog(void){
   WDTCTL = WDTPW + WDTCNTCL; //²M°£WATCH DOG
 }
 
-void UART0_SetBaudrate(unsigned long Baudrate){
-  switch (Baudrate){
-      case 300: UBR00=0x92; UBR10=0x68; UMCTL0=0x4D; break;
-      case 2400: UBR00=0x12; UBR10=0x0D; UMCTL0=0x9E; break;
-      case 4800: UBR00=0x88; UBR10=0x06; UMCTL0=0x4B; break;
-      case 9600: UBR00=0x44; UBR10=0x03; UMCTL0=0x9A; break;
-      case 12800: UBR00=0x73; UBR10=0x02; UMCTL0=0x09; break;
-      case 19200: UBR00=0xA1; UBR10=0x01; UMCTL0=0x49; break;
-      case 38400: UBR00=0xD0; UBR10=0x00; UMCTL0=0x97; break;
-      case 57600: UBR00=0x8A; UBR10=0x00; UMCTL0=0x0F; break;
-      case 64000: UBR00=0x7D; UBR10=0x00; UMCTL0=0x05; break;
-      case 76800: UBR00=0x68; UBR10=0x00; UMCTL0=0x1C; break;
-      case 102400: UBR00=0x4E; UBR10=0x00; UMCTL0=0x7B; break;
-      case 115200: UBR00=0x45; UBR10=0x00; UMCTL0=0xAA; break;
-      case 230400: UBR00=0x22; UBR10=0x00; UMCTL0=0x99; break;
-  }
-  UCTL0 &= ~SWRST;
-}
 
-
-unsigned char Init_UART()
-{
-  //r_Pipe_ID = Take_Pipe(IN_BUF_LEN);
-  //t_Pipe_ID = Take_Pipe(OUT_BUF_LEN);
-  P3SEL |= 0x30;                            // P3->4,5 = USART0 TXD/RXD
-  ME1 |= UTXE0 + URXE0;                     // Enable USART0 TXD/RXD
-  UCTL0 |= CHAR;                            // 8-bit character
-  UTCTL0 |= SSEL1;                          // UCLK = SMCLK
-  
-  UART0_SetBaudrate(57600);
-  
-  IE1 |= URXIE0;	    	// enable transmission and receiver intrrupt
-    
-  return 1;
-}
 
 void RefreshFIXFunctionPoint(){ //±NMain·|¥Î¨ìªº«DFIX°ÏFUNCTION POINT¦b¦¹¥ýªì©l¤Æ->->¥HÁ×§K§ó·s«á¨ç¼Æ¦ì§}§ïÅÜ¤§°ÝÃD
   ///UPP=(UpdatePointer *)UpdatingPointer;  //UPP§Y¬OUpdateP->->UPP»PUpdateP¦@¥Î¦P¤@¦ì§}->->·íUpdateP§ïÅÜ¦ì¸m®É->->FIX BLOCK¤´¥i±oª¾¥¿½T¦ì¸m
@@ -300,13 +261,6 @@ void RefreshFIXFunctionPoint(){ //±NMain·|¥Î¨ìªº«DFIX°ÏFUNCTION POINT¦b¦¹¥ýªì©l¤
   UpdateP.Address=0x0000;
   UpdateP.Data_counter=0;
   UpdateP.InputCount=0;
-}
-
-void SendText(unsigned char *SBUF,unsigned int length){
-  for (int i=0;i<length;i++){
-    while (!(IFG1 & UTXIFG0));                                   // USART0 TX buffer ready?
-    TXBUF0 = SBUF[i];
-  }
 }
 
 
@@ -331,17 +285,6 @@ void CheckUpdatePacket(unsigned char RxData){
     }  //¬Û¦Pªº¸Ü¡C¶i¤J§ó·s¼Ò¦¡
   }
 
-}
-
-void  flash_write_word (unsigned int value,unsigned int address){
-  unsigned int *Flash_ptr= (unsigned int *) address;    // Initialize Flash pointer
-  FCTL3 = FWKEY;                            // Clear Lock bit
-  FCTL1 = FWKEY + WRT;                      // Set WRT bit for write operation
-
-  *Flash_ptr = value;                       // Write value to flash
-
-  FCTL1 = FWKEY;                            // Clear WRT bit
-  FCTL3 = FWKEY + LOCK;                     // Set LOCK bit
 }
 
 
@@ -380,7 +323,7 @@ unsigned int LeftShift(unsigned int value,unsigned char power){
 
 
 void ProcessUpdate(unsigned char RXBUF){
-  FCTL2 = FWKEY + FSSEL_2 + FN4 + FN2;      // SMCLK/20+1 = 400K for Flash Timing Generator
+  //FCTL2 = FWKEY + FSSEL_2 + FN4 + FN2;      // SMCLK/20+1 = 400K for Flash Timing Generator
   _NOP();
   unsigned char RCVData;
   unsigned char Donothing=0;
@@ -418,7 +361,7 @@ void ProcessUpdate(unsigned char RXBUF){
         UpdateP.Address_mode=0;
         UpdateP.Data_counter =4;
         UpdateP.InputCount=0; //²MªÅ¦¨0->->º¡512BYTE¤~¹ïFLASH§@¦s¨ú
-        SendText((unsigned char *)AddressOK,9);
+        SendTextToUart(0,(unsigned char *)AddressOK,9);
         //printf("A: 0x%X ",UpdateP.Address);
       }
     //===========================================================================
@@ -458,7 +401,7 @@ void ProcessUpdate(unsigned char RXBUF){
            BUFSTR[7]=0x30+(CHKSUM/10)%10;
            BUFSTR[8]=0x30+CHKSUM%10;
            _EINT();
-           SendText((unsigned char *)BUFSTR,9);
+           SendTextToUart(0,(unsigned char *)BUFSTR,9);
            //-----------------------------------COMPUTE CHECK SUM-------------------------
            if(UpdateP.Address-512==0xFE00){  //³Ì«á¤@­Ó§ó·s§¹¦¨ªºBLOCK
              _DINT();
@@ -473,15 +416,20 @@ void ProcessUpdate(unsigned char RXBUF){
   }
 }
 
+
+void UART0RX(unsigned char RX){
+  if(UpdateP.Updating==0){
+    UpdateP.DoNormalRxFunct(RX);
+    CheckUpdatePacket(RX); //check the Update keyword,if detect then copy flash to ram and reset
+  }else{
+    ProcessUpdate(RX);
+  }
+}
+
 void BootLoaderMain(void(*Run_MainFunct)(void),void(*DoNormalRxFunct)(unsigned char RxData)){ //¶Ç¤JUART ISR»P¤lµ{¦¡MAINªº¨ç¼Æ«ü¼Ð
     WDTCTL = WDTPW | WDTHOLD;                // Stop WDT
     
-    BCSCTL1 &= ~XT2OFF; // XT2= HF XTAL &= ~XT2OFF;
-    do{
-      IFG1 &= ~OFIFG; // Clear OSCFault flag
-      for (int i = 0xFF; i > 0; i--); // Time for flag to set
-    }while ((IFG1 & OFIFG)); // OSCFault flag still set? 
-    BCSCTL2 |= SELM_2+SELS; // MCLK=SMCLK=XT2 (safe)
+    Use_XTAL2();
     
     UpdateP.BufFulltoWrite=0;
     switch(StartUpdatingMode){
@@ -492,7 +440,7 @@ void BootLoaderMain(void(*Run_MainFunct)(void),void(*DoNormalRxFunct)(unsigned c
     RefreshFIXFunctionPoint();
  //----------------------------------------------INIT---------------------------------------
     _DINT();
-    Init_UART();
+    OpenUart(0,57600,&UART0RX);
     Init_Flash();
     _EINT();  
     if(UpdateP.Updating==1){ //¦pªG¤£¬°FFFF..ªí¥Ü¤W¦¸­«¶}«e¤w¶i¤J§ó·s¼Ò¦¡..³o®É..´N§â§ó·sµ{¦¡COPY¨ìRAM¤¤¨Ã­«±Ò  
@@ -517,17 +465,4 @@ void BootLoaderMain(void(*Run_MainFunct)(void),void(*DoNormalRxFunct)(unsigned c
     UpdateP.Run_MainFunct();
 }
 
-
-#pragma vector=UART0RX_VECTOR
-__interrupt void usart0_rx (void){
-  unsigned char RX;
-  RX=RXBUF0;
-
-  if(UpdateP.Updating==0){
-    UpdateP.DoNormalRxFunct(RX);
-    CheckUpdatePacket(RX); //check the Update keyword,if detect then copy flash to ram and reset
-  }else{
-    ProcessUpdate(RX);
-  }
-}
 

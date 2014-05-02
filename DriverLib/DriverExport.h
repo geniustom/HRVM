@@ -1,7 +1,9 @@
 #ifndef DriverUse_H
 
+#include "CoreDriver/CoreDriver.h"
 #define DriverUse_H
-#include "MSP430x16x.h"
+
+#define MSP430Clock 25000000
 /*************************************************************************
 ;                       ISR MESSAGE PIRORITY
 *************************************************************************/
@@ -31,12 +33,16 @@
 
 #define ISRMSG_UART0RX            0x40
 
-#define ISRMSG_LButtonPress       0x51
-#define ISRMSG_RButtonPress       0x52
-#define ISRMSG_CButtonPress       0x53
-#define ISRMSG_LButtonLongPress   0x54
-#define ISRMSG_RButtonLongPress   0x55
-#define ISRMSG_CButtonLongPress   0x56
+#define ISRMSG_UButtonPress       0x51
+#define ISRMSG_DButtonPress       0x52
+#define ISRMSG_LButtonPress       0x53
+#define ISRMSG_RButtonPress       0x54
+#define ISRMSG_CButtonPress       0x55
+#define ISRMSG_UButtonLongPress   0x56
+#define ISRMSG_DButtonLongPress   0x57
+#define ISRMSG_LButtonLongPress   0x58
+#define ISRMSG_RButtonLongPress   0x59
+#define ISRMSG_CButtonLongPress   0x5A
 /*************************************************************************
 ;                          ISR MESSAGE FUNCTION
 *************************************************************************/
@@ -47,6 +53,7 @@
 #define TABuzzer 0    //TA1
 #define TARTC  1      //TA0
 #define TAButton 2    //TA2
+
 typedef struct{
   unsigned char PirorityValue;
   void  (*FunctionAddr)(void);
@@ -78,30 +85,19 @@ extern void Init_TA();
 #define ADCQueueFull          BIT2
 #define FlashBufFull          BIT3
 #define InternalFlashErr      BIT4
+
 extern unsigned int ERRORCODE;
 extern void ShowErrorCode();
 extern void AddErrorCode(unsigned int ERRORTYPE);
 /*************************************************************************
-;                          GPIO FUNCTION
-*************************************************************************/
-#define USBPIN BIT6
-#define MaxOfHook 1   //需要HOOK的IO個數在這邊定義
-typedef struct{
-  unsigned int GPIOID;
-  void (*HookCallBack)(void); //function pointer will be called after hook detect
-  unsigned char HookType;  //HOOK種類 1:正緣觸發 2:負緣觸發 3:雙向觸發 
-  unsigned long GPIOStartTime;
-}GPIOHookStruct;
-extern GPIOHookStruct GPIOHook[MaxOfHook];
-extern void GPIODetect();
-extern void AddGPIOHook(int GPIOID,unsigned char HookType,void (*HookCallBack)(),unsigned char HookIndex);
-
-/*************************************************************************
 ;                          Button IO FUNCTION
 *************************************************************************/
-#define ButtonC BIT0
-#define ButtonL BIT1
-#define ButtonR BIT2
+#define ButtonU BIT0
+#define ButtonD BIT1
+#define ButtonL BIT2
+#define ButtonR BIT3
+#define ButtonC BIT4
+
 typedef struct{
   unsigned char PortNum;
   unsigned char Count;   //每一隻PIN的狀態維持了多久
@@ -109,15 +105,14 @@ typedef struct{
   void (*LongPress)(void);   //function pointer will be called after long Press
   unsigned char PortSetting;  //每一隻PIN的中斷觸發種類 0:Hi觸發 1:Lo觸發
 }ButtonStruct;
-extern ButtonStruct ButtonLeft,ButtonRight,ButtonEnter;
-extern void P2SetButtonIO(ButtonStruct *Button,unsigned char En,unsigned char PortNum,unsigned char PortSetting,void (*fP)(),void (*fLP)()); 
+extern ButtonStruct ButtonUp,ButtonDown,ButtonLeft,ButtonRight,ButtonCenter;
+extern void PxSetButtonIO(ButtonStruct *Button,unsigned char En,unsigned char PortNum,unsigned char PortSetting,void (*fP)(),void (*fLP)()); 
 extern void CheckButton(ButtonStruct *Button);
 extern void CheckButtonPress(ButtonStruct *Button);
 extern void ButtonDetect();
 /*************************************************************************
 ;                          OLED IO FUNCTION
 *************************************************************************/
-
 typedef struct 
 {
   unsigned char Top;
@@ -156,7 +151,7 @@ extern void CreateChart(unsigned char Left,unsigned char Top,unsigned char Width
 extern void Print(unsigned char *CharData,unsigned char len,unsigned char Left,unsigned char Top,unsigned char fontsize);
 extern void AddValue(OLEDCHART *OLC,int value);
 /*************************************************************************
-;                          FLASH IO FUNCTION
+;                          NAND FLASH IO FUNCTION
 *************************************************************************/
 typedef struct {
   unsigned char Busy;           //busy for RW
@@ -194,80 +189,25 @@ extern void StepSave_Flash(FlashStruct *F);
 extern void StepRead_Flash(FlashStruct *F);
 //extern int WriteByte(unsigned int nCol,unsigned long nRow,unsigned char nValue);
 //extern unsigned char ReadByte(unsigned int nCol,unsigned long nRow);
-
-
+/*************************************************************************
+;                          SD CARD function
+*************************************************************************/
+#include "ExternDriver/SDCard/HAL_SDCard.h"
 /*************************************************************************
 ;                          BUZZER IO FUNCTION
 *************************************************************************/
 #define BuzzerPin BIT3
+
 extern void BuzzerOn();
 extern void BuzzerOff();
 extern void Beep1Sec();
 extern void ShortBeepSetTimes(unsigned char Times);
 /*************************************************************************
-;                          TIMERB FUNCTION
-*************************************************************************/
-#define TIMERB_AMOUNT  7
-#define SINGLE      2   //只執行一次
-#define NO_SERV  0xff
-#define TIMERID char
-#define TBADC     0x00
-#define TB0       0x00
-#define TB1       0x01
-#define TB2       0x02
-#define TB3       0x03
-#define TB4       0x04
-#define TB5       0x05
-#define TB6       0x06
-#define RANDOM    0xff
-#define ERROR_NO_ERROR      0
-#define ERROR_INITIAL       1
-#define ERROR_CREAT_TIMER   2
-#define ERROR_DELETE_TIMER  4
-extern void Init_TB();
-extern char TakeTimer(char RequiredTimer,unsigned int Interval,unsigned char mode,void (*f)());
-extern unsigned char ReleaseTimer(char RequiredTimer);
-extern void AdjustTimer(char num,unsigned int clk);
-extern void TimerISRFunction(char num);
-/*************************************************************************
-;                          ADC MANAGER
-*************************************************************************/
-#define ADCChannel 3
-#define ADQueueSize 16
-typedef struct {
-  unsigned int ADQueueData[ADQueueSize];
-  unsigned char Front,Rear;
-}ADC_Queue;
-
-typedef struct {
-  unsigned char TurnON;
-  unsigned int ADIndex;
-  unsigned char ADComplete;
-  unsigned int ADCBUF[ADCChannel];
-  unsigned char TimerID;
-  void (*CallBackFP)(void);
-  unsigned char NowCapChanel;
-  ADC_Queue ADQueue;
-}ADC_Struct;
-extern ADC_Struct AD_Struct;
-
-extern void ADCISR();
-extern void TurnOnADC();
-extern void SetADCCTL();
-extern void Close_ADC();
-extern void Open_ADC(void (*CallBackFP)(),unsigned char CapChanel);
-extern unsigned int GetDataformADQueue(unsigned char ChanelID);
-//傳入當ADC發生中斷時的回呼函式..包成ISR MSG送給OS..
-//ADQ為當中斷發生時若ADQ不為0..會將DATA放進去..可以確保若沒被OS即時處理..仍能SAMPLE的正確性
-extern void Init_DAC();
-/*************************************************************************
 ;                          Power function
 *************************************************************************/
 #define BatteryArraySize 3
 #define BatteryGridArraySize 20
-extern void Reset();
-extern void Use_XTAL2(void);
-extern void Use_DCO(void);
+
 extern void Open_BattDetect();
 extern void Close_BattDetect();
 extern void PowerOn();
@@ -317,11 +257,7 @@ extern void UpdateRTC();
 extern void UpdateMsec();
 extern void SetDisCount(unsigned int Sec,void(*TimeOutFP)());
 extern void UpdateRTCFromRTCChip();
-/*************************************************************************
-;                          WDT TIMER FUNCTION
-*************************************************************************/
-extern void InitWDT();
-extern unsigned long WDTCycle;
+
 /*************************************************************************
 ;                          I2C RTC CHIP FUNCTION
 *************************************************************************/

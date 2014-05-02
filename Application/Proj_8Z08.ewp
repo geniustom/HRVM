@@ -46,19 +46,19 @@
         <option>
           <name>GRuntimeLibSelect</name>
           <version>0</version>
-          <state>4</state>
+          <state>2</state>
         </option>
         <option>
           <name>RTDescription</name>
-          <state>Use the legacy C runtime library.</state>
+          <state>Use the full configuration of the C/EC++ runtime library. Full locale interface, C locale, file descriptor support, multibytes in printf and scanf, and hex floats in strtod.</state>
         </option>
         <option>
           <name>RTConfigPath</name>
-          <state></state>
+          <state>$TOOLKIT_DIR$\LIB\DLIB\dl430xsff.h</state>
         </option>
         <option>
           <name>RTLibraryPath</name>
-          <state>$TOOLKIT_DIR$\LIB\CLIB\cl430f.r43</state>
+          <state>$TOOLKIT_DIR$\LIB\DLIB\dl430xsff.r43</state>
         </option>
         <option>
           <name>Input variant</name>
@@ -81,7 +81,7 @@
         <option>
           <name>GRuntimeLibSelectSlave</name>
           <version>0</version>
-          <state>4</state>
+          <state>2</state>
         </option>
         <option>
           <name>OGCore</name>
@@ -97,7 +97,7 @@
         </option>
         <option>
           <name>OGChipSelectMenu</name>
-          <state>MSP430F1612	MSP430F1612</state>
+          <state>MSP430F5438A	MSP430F5438A</state>
         </option>
         <option>
           <name>GStackHeapOverride</name>
@@ -117,7 +117,7 @@
         </option>
         <option>
           <name>GHeap20Size</name>
-          <state>###Uninitialized###</state>
+          <state>80</state>
         </option>
         <option>
           <name>GeneralMisraRules98</name>
