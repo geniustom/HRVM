@@ -4,7 +4,7 @@
 #ifdef Debug
 
 #include "DriverExport.h"
-
+#include "ExternDriver/LCD_ili9341/LCD_ili9341.h"
 
 void Init_CLK(void)
 {
@@ -26,6 +26,7 @@ void Init_CLK(void)
 void main(){
   Init_CLK();
   SDCard_init();
+  LCD_Test();
   while(1){
     WriteTest();
   }

@@ -6,74 +6,69 @@
   <configuration>
     <name>Debug</name>
     <outputs>
-      <file>$PROJ_DIR$\..\Driverlib\DriverExport.h</file>
       <file>$PROJ_DIR$\BootloaderExport.h</file>
       <file>$PROJ_DIR$\System\BootLoader.c</file>
-      <file>$PROJ_DIR$\..\DriverLib\Debug\Exe\DriverLib.r43</file>
+      <file>$PROJ_DIR$\..\Driverlib\DriverExport.h</file>
       <file>$PROJ_DIR$\System\MainForBootloader.c</file>
-      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$PROJ_DIR$\..\DriverLib\Debug\Exe\DriverLib.r43</file>
       <file>$PROJ_DIR$\Debug\Exe\BootLoaderOnly.d43</file>
+      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
       <file>$PROJ_DIR$\Debug\List\BootLoaderOnly.map</file>
       <file>$PROJ_DIR$\Debug\Obj\MainForBootloader.r43</file>
-      <file>$PROJ_DIR$\Debug\Exe\BootLoaderOnly.r43</file>
-      <file>$TOOLKIT_DIR$\inc\in430.h</file>
       <file>$PROJ_DIR$\Debug\Exe\BootLoaderOnly.ulp</file>
-      <file>$PROJ_DIR$\Debug\Obj\BootLoader.r43</file>
       <file>$PROJ_DIR$\Debug\Obj\BootLoader.pbi</file>
+      <file>$PROJ_DIR$\Debug\Exe\BootLoaderOnly.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\BootLoader.r43</file>
+      <file>$TOOLKIT_DIR$\inc\in430.h</file>
       <file>$PROJ_DIR$\System\RamUpdateSubProgram.h</file>
       <file>$PROJ_DIR$\Debug\Exe\BootLoaderOnly.txt</file>
-      <file>$PROJ_DIR$\Debug\Obj\MainForBootloader.pbi</file>
       <file>$TOOLKIT_DIR$\inc\msp430f5438a.h</file>
       <file>$TOOLKIT_DIR$\inc\msp430.h</file>
       <file>$PROJ_DIR$\..\Driverlib\CoreDefine.h</file>
       <file>$PROJ_DIR$\System\&lt;invalid loc&gt;</file>
       <file>$TOOLKIT_DIR$\config\lnk430F5438A.xcl</file>
       <file>$TOOLKIT_DIR$\config\multiplier32_loc2.xcl</file>
+      <file>$PROJ_DIR$\Debug\Obj\MainForBootloader.pbi</file>
       <file>$TOOLKIT_DIR$\lib\dlib\dl430xsff.r43</file>
-      <file>$PROJ_DIR$\..\Driverlib\ExternDriver\SDCard\SDCard.h</file>
       <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Threads.h</file>
       <file>$TOOLKIT_DIR$\inc\dlib\c\stdio.h</file>
       <file>$TOOLKIT_DIR$\inc\dlib\c\string.h</file>
       <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
+      <file>$PROJ_DIR$\..\Driverlib\ExternDriver\SDCard\SDCard.h</file>
       <file>$TOOLKIT_DIR$\lib\dlib\dl430xsff.h</file>
       <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Defaults.h</file>
-      <file>$PROJ_DIR$\..\Driverlib\CoreDriver\CoreDriver.h</file>
       <file>$TOOLKIT_DIR$\inc\dlib\c\yvals.h</file>
       <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
       <file>$TOOLKIT_DIR$\inc\dlib\c\ystdio.h</file>
       <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Product.h</file>
+      <file>$PROJ_DIR$\..\Driverlib\CoreDriver\CoreDriver.h</file>
       <file>$TOOLKIT_DIR$\inc\dlib\c\stdint.h</file>
       <file>$TOOLKIT_DIR$\inc\dlib\c\ysizet.h</file>
       <file>$PROJ_DIR$\..\Driverlib\ExternDriver\SDCard\FatFs\ffconf.h</file>
-      <file>$PROJ_DIR$\..\Driverlib\ExternDriver\SDCard\FatFs\integer.h</file>
       <file>$PROJ_DIR$\..\Driverlib\ExternDriver\SDCard\HAL_SDCard.h</file>
+      <file>$PROJ_DIR$\..\Driverlib\ExternDriver\SDCard\FatFs\integer.h</file>
       <file>$PROJ_DIR$\..\Driverlib\ExternDriver\SDCard\FatFs\ff.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\BootLoaderOnly.pbd</file>
-      <file>$PROJ_DIR$\..\DriverLib\ExternDriver\Power\Power.c</file>
-      <file>$PROJ_DIR$\..\RTOS\main.c</file>
-      <file>$PROJ_DIR$\..\RTOS\Rtos.c</file>
-      <file>$PROJ_DIR$\..\DriverLib\ISRMessage.c</file>
     </outputs>
     <file>
       <name>$PROJ_DIR$\System\BootLoader.c</name>
       <outputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 13</file>
-        </tool>
-        <tool>
           <name>ICC430</name>
           <file> 12</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 10</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 14 1 0 31 20 40 18 17 10 5 26 33 32 30 29 35 28 25 37 34 27 24 36 41 39 38</file>
+          <name>ICC430</name>
+          <file> 14 0 2 35 18 17 16 13 6 39 25 32 31 30 29 34 27 24 37 33 26 28 36 41 40 38</file>
         </tool>
         <tool>
-          <name>ICC430</name>
-          <file> 14 1 0 31 19 18 17 10 5 40 26 33 32 30 29 35 28 25 37 34 27 24 36 41 39 38</file>
+          <name>BICOMP</name>
+          <file> 14 0 2 35 19 39 17 16 13 6 25 32 31 30 29 34 27 24 37 33 26 28 36 41 40 38</file>
         </tool>
       </inputs>
     </file>
@@ -81,12 +76,12 @@
       <name>$PROJ_DIR$\System\MainForBootloader.c</name>
       <outputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 16</file>
-        </tool>
-        <tool>
           <name>ICC430</name>
           <file> 8</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 22</file>
         </tool>
       </outputs>
     </file>
@@ -101,7 +96,7 @@
       <inputs>
         <tool>
           <name>XLINK</name>
-          <file> 21 22 12 8 3 23</file>
+          <file> 20 21 12 8 4 23</file>
         </tool>
       </inputs>
     </file>
@@ -110,7 +105,7 @@
       <inputs>
         <tool>
           <name>XAR</name>
-          <file> 12 8 3</file>
+          <file> 12 8 4</file>
         </tool>
       </inputs>
     </file>
@@ -119,15 +114,15 @@
       <outputs>
         <tool>
           <name>XLINK</name>
-          <file> 7 15 6</file>
+          <file> 7 15 5</file>
         </tool>
         <tool>
           <name>XAR</name>
-          <file> 9</file>
+          <file> 11</file>
         </tool>
         <tool>
           <name>ULP430</name>
-          <file> 11</file>
+          <file> 9</file>
         </tool>
       </outputs>
     </file>
@@ -145,6 +140,7 @@
       <file>$TOOLKIT_DIR$\inc\in430.h</file>
       <file>$PROJ_DIR$\System\RamUpdateSubProgram.h</file>
       <file>$TOOLKIT_DIR$\lib\clib\cl430f.r43</file>
+      <file>$PROJ_DIR$\Release\Obj\ECC.r43</file>
       <file>$TOOLKIT_DIR$\config\multiplier.xcl</file>
       <file>$PROJ_DIR$\System\OLED.C</file>
       <file>$TOOLKIT_DIR$\inc\MSP430X16X.h</file>
@@ -165,14 +161,13 @@
       <file>$PROJ_DIR$\System\globol.h</file>
       <file>$PROJ_DIR$\Release\Obj\BootLoader.r43</file>
       <file>$PROJ_DIR$\System\Update\PortManager.h</file>
-      <file>$PROJ_DIR$\Release\Obj\MainForBootloader.r43</file>
       <file>$PROJ_DIR$\System\Upload_Firmware.h</file>
       <file>$TOOLKIT_DIR$\config\lnk430.xcl</file>
       <file>$TOOLKIT_DIR$\inc\clib\math.h</file>
       <file>$PROJ_DIR$\System\Update\AccessFlash.c</file>
+      <file>$PROJ_DIR$\Release\Obj\MainForBootloader.r43</file>
       <file>$PROJ_DIR$\Release\Obj\OLED.pbi</file>
       <file>$PROJ_DIR$\Release\Obj\Flash.r43</file>
-      <file>$PROJ_DIR$\Release\Obj\ECC.r43</file>
       <file>$PROJ_DIR$\System\Update\ECC.c</file>
       <file>$PROJ_DIR$\System\Update\Flash.c</file>
       <file>$PROJ_DIR$\Release\Obj\MainForBootloader.pbi</file>
@@ -181,22 +176,22 @@
       <name>$PROJ_DIR$\System\BootLoader.c</name>
       <outputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 15</file>
+          <name>ICC430</name>
+          <file> 25</file>
         </tool>
         <tool>
-          <name>ICC430</name>
-          <file> 24</file>
+          <name>BICOMP</name>
+          <file> 16</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 8 3 2 19 27 4 17 23 29 20</file>
+          <name>ICC430</name>
+          <file> 9 3 2 20 27 4 18 24 29 21</file>
         </tool>
         <tool>
-          <name>ICC430</name>
-          <file> 8 3 2 19 27 4 17 23 29 20</file>
+          <name>BICOMP</name>
+          <file> 9 3 2 20 27 4 18 24 29 21</file>
         </tool>
       </inputs>
     </file>
@@ -204,22 +199,22 @@
       <name>$PROJ_DIR$\System\MainForBootloader.c</name>
       <outputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 36</file>
+          <name>ICC430</name>
+          <file> 31</file>
         </tool>
         <tool>
-          <name>ICC430</name>
-          <file> 26</file>
+          <name>BICOMP</name>
+          <file> 36</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 8 3 2 19 27</file>
+          <name>ICC430</name>
+          <file> 9 3 2 20 27</file>
         </tool>
         <tool>
-          <name>ICC430</name>
-          <file> 8 3 2 19 27</file>
+          <name>BICOMP</name>
+          <file> 9 3 2 20 27</file>
         </tool>
       </inputs>
     </file>
@@ -228,7 +223,7 @@
       <outputs>
         <tool>
           <name>XLINK</name>
-          <file> 21</file>
+          <file> 22</file>
         </tool>
       </outputs>
     </file>
@@ -236,22 +231,22 @@
       <name>$PROJ_DIR$\System\OLED.C</name>
       <outputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 31</file>
+          <name>ICC430</name>
+          <file> 13</file>
         </tool>
         <tool>
-          <name>ICC430</name>
-          <file> 12</file>
+          <name>BICOMP</name>
+          <file> 32</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 17 23 8 3 2 29 20</file>
+          <name>ICC430</name>
+          <file> 18 24 9 3 2 29 21</file>
         </tool>
         <tool>
-          <name>ICC430</name>
-          <file> 17 23 8 3 2 29 20</file>
+          <name>BICOMP</name>
+          <file> 18 24 9 3 2 29 21</file>
         </tool>
       </inputs>
     </file>
@@ -260,7 +255,7 @@
       <inputs>
         <tool>
           <name>BILINK</name>
-          <file> 11 15 14 16 36 31</file>
+          <file> 12 16 15 17 36 32</file>
         </tool>
       </inputs>
     </file>
@@ -269,7 +264,7 @@
       <inputs>
         <tool>
           <name>XLINK</name>
-          <file> 28 6 10 24 33 32 26 12 5</file>
+          <file> 28 7 11 25 6 33 31 13 5</file>
         </tool>
       </inputs>
     </file>
@@ -277,22 +272,22 @@
       <name>$PROJ_DIR$\System\Update\AccessFlash.c</name>
       <outputs>
         <tool>
-          <name>BICOMP</name>
+          <name>ICC430</name>
           <file> 11</file>
         </tool>
         <tool>
-          <name>ICC430</name>
-          <file> 10</file>
+          <name>BICOMP</name>
+          <file> 12</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 25 22 8 3 2 9 18</file>
+          <name>ICC430</name>
+          <file> 26 23 9 3 2 10 19</file>
         </tool>
         <tool>
-          <name>ICC430</name>
-          <file> 25 22 8 3 2 9 18</file>
+          <name>BICOMP</name>
+          <file> 26 23 9 3 2 10 19</file>
         </tool>
       </inputs>
     </file>
@@ -300,22 +295,22 @@
       <name>$PROJ_DIR$\System\Update\ECC.c</name>
       <outputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 14</file>
+          <name>ICC430</name>
+          <file> 6</file>
         </tool>
         <tool>
-          <name>ICC430</name>
-          <file> 33</file>
+          <name>BICOMP</name>
+          <file> 15</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 18 25 22 8 3 2</file>
+          <name>ICC430</name>
+          <file> 19 26 23 9 3 2</file>
         </tool>
         <tool>
-          <name>ICC430</name>
-          <file> 18 25 22 8 3 2</file>
+          <name>BICOMP</name>
+          <file> 19 26 23 9 3 2</file>
         </tool>
       </inputs>
     </file>
@@ -323,22 +318,22 @@
       <name>$PROJ_DIR$\System\Update\Flash.c</name>
       <outputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 16</file>
+          <name>ICC430</name>
+          <file> 33</file>
         </tool>
         <tool>
-          <name>ICC430</name>
-          <file> 32</file>
+          <name>BICOMP</name>
+          <file> 17</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 18 25 22 8 3 2</file>
+          <name>ICC430</name>
+          <file> 19 26 23 9 3 2</file>
         </tool>
         <tool>
-          <name>ICC430</name>
-          <file> 18 25 22 8 3 2</file>
+          <name>BICOMP</name>
+          <file> 19 26 23 9 3 2</file>
         </tool>
       </inputs>
     </file>

@@ -33,7 +33,7 @@
         </option>
         <option>
           <name>GOutputBinary</name>
-          <state>1</state>
+          <state>0</state>
         </option>
         <option>
           <name>AssemblerOnly</name>
@@ -50,7 +50,7 @@
         </option>
         <option>
           <name>RTDescription</name>
-          <state>Use the full configuration of the C/EC++ runtime library. Full locale interface, C locale, file descriptor support, multibytes in printf and scanf, and hex floats in strtod.</state>
+          <state>To be used with the full configuration of the C/EC++ runtime library. Full locale interface, C locale, file descriptor support, multibytes in printf and scanf, and hex floats in strtod.</state>
         </option>
         <option>
           <name>RTConfigPath</name>
@@ -309,7 +309,7 @@
         </option>
         <option>
           <name>CCRadioModuleType</name>
-          <state>1</state>
+          <state>0</state>
         </option>
         <option>
           <name>CCRadioModuleTypeSlave</name>
@@ -1030,7 +1030,7 @@
         </option>
         <option>
           <name>RTConfigPath</name>
-          <state>xxx.h</state>
+          <state></state>
         </option>
         <option>
           <name>RTLibraryPath</name>
@@ -1057,7 +1057,7 @@
         <option>
           <name>GRuntimeLibSelectSlave</name>
           <version>0</version>
-          <state>1</state>
+          <state>4</state>
         </option>
         <option>
           <name>OGCore</name>
@@ -1253,7 +1253,7 @@
         </option>
         <option>
           <name>OutputFile</name>
-          <state></state>
+          <state>$FILE_BNAME$.r43</state>
         </option>
         <option>
           <name>CCLibConfigHeader</name>
@@ -1620,7 +1620,7 @@
         </option>
         <option>
           <name>OutputFile</name>
-          <state></state>
+          <state>DriverLib.txt</state>
         </option>
         <option>
           <name>OutputFormat</name>
@@ -2010,6 +2010,15 @@
       <name>Buzzer</name>
       <file>
         <name>$PROJ_DIR$\ExternDriver\Buzzer\Buzzer.c</name>
+      </file>
+    </group>
+    <group>
+      <name>LCD_ili9341</name>
+      <file>
+        <name>$PROJ_DIR$\ExternDriver\LCD_ili9341\LCD_ili9341.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\ExternDriver\LCD_ili9341\LCD_ili9341.h</name>
       </file>
     </group>
     <group>

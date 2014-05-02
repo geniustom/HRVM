@@ -57,7 +57,7 @@
         </option>
         <option>
           <name>DdfFileName</name>
-          <state>$TOOLKIT_DIR$\config\MSP430F1612.ddf</state>
+          <state>$TOOLKIT_DIR$\config\MSP430F5438A.ddf</state>
         </option>
         <option>
           <name>ProcTMS</name>
@@ -203,7 +203,7 @@
         </option>
         <option>
           <name>CRadioProtocolType</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>CCRadioModuleTypeSlave</name>
@@ -228,7 +228,7 @@
         <option>
           <name>FetConnection</name>
           <version>2</version>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>SoftwareBreakpointEnable</name>
@@ -683,7 +683,7 @@
         </option>
         <option>
           <name>SimPspConfigFile</name>
-          <state>###Uninitialized###</state>
+          <state>$TOOLKIT_DIR$\CONFIG\test.psp.config</state>
         </option>
       </data>
     </settings>
