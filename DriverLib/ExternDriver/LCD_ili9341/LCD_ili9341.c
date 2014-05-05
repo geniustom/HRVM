@@ -2,12 +2,11 @@
 #include "MSP430F5438a.h"
 #include "stdlib.h"
 #include "INTRINSICS.H"
-
+#include "font.h"
 
 #define CPU_F ((double)16000000)
 #define delay_us(x) __delay_cycles((long)(CPU_F*(double)x/1000000.0))
 #define delay_ms(x) __delay_cycles((long)(CPU_F*(double)x/1000.0))
-
 
 typedef unsigned short     int u16;
 typedef unsigned          char u8;
@@ -37,6 +36,9 @@ typedef unsigned           int u32;
 #define LGRAYBLUE        0XA651
 #define LBBLUE           0X2B12
 
+
+u16 g_background=BLACK;
+u16 g_forground=WHITE;
 
 #define	LCD_LED_SET     P3OUT |= BIT6
 #define	LCD_RST_SET     P3OUT |= BIT3
@@ -187,17 +189,243 @@ void LCD_Scan_Dir(u8 dir)
     }  
 } 
 
+void LCD_Fill(u16 sx,u16 sy,u16 ex,u16 ey,u16 color)
+{          
+	u16 i,j;
+	u16 xlen=0;
+	LCD_Scan_Dir(L2R_U2D);
+        
+	xlen=ex-sx+1;	   
+	for(i=sy;i<=ey;i++)
+	{
+	 	LCD_SetCursor(sx,i);
+		LCD_WriteRAM_Prepare();  
+		for(j=0;j<xlen;j++)
+            LCD_WriteData(color);
+	}
+
+	LCD_Scan_Dir(DFT_SCAN_DIR);
+}  
+
 void LCD_DisplayOn(void)
 {
     LCD_WriteReg(0x29);    //Display on 
     
 	LCD_Scan_Dir(DFT_SCAN_DIR);		 
 	LCD_LED_SET;
-	LCD_Clear(DARKBLUE);    
+	LCD_Clear(g_background);    
+}
+
+void LCD_ClearPoint(u16 x,u16 y)
+{
+	LCD_SetCursor(x,y);
+	LCD_WriteRAM_Prepare();
+	LCD_WriteData(g_background); 
+}
+
+void LCD_DrawPoint(u16 x,u16 y)
+{
+	LCD_SetCursor(x,y);
+	LCD_WriteRAM_Prepare();
+	LCD_WriteData(g_forground); 
+}
+
+void LCD_DrawLine(u16 x1, u16 y1, u16 x2, u16 y2)
+{
+	u16 t; 
+	int xerr=0,yerr=0,delta_x,delta_y,distance; 
+	int incx,incy,uRow,uCol; 
+
+	delta_x=x2-x1;
+	delta_y=y2-y1; 
+	uRow=x1; 
+	uCol=y1; 
+	if(delta_x>0)incx=1;
+	else if(delta_x==0)incx=0;
+	else {incx=-1;delta_x=-delta_x;} 
+	if(delta_y>0)incy=1; 
+	else if(delta_y==0)incy=0;
+	else{incy=-1;delta_y=-delta_y;} 
+	if( delta_x>delta_y)distance=delta_x;
+	else distance=delta_y; 
+	for(t=0;t<=distance+1;t++ )
+	{  
+		LCD_DrawPoint(uRow,uCol);
+		xerr+=delta_x ; 
+		yerr+=delta_y ; 
+		if(xerr>distance) 
+		{ 
+			xerr-=distance; 
+			uRow+=incx; 
+		} 
+		if(yerr>distance) 
+		{ 
+			yerr-=distance; 
+			uCol+=incy; 
+		} 
+	}  
+}   
+
+void LCD_DrawRectangle(u16 x1, u16 y1, u16 x2, u16 y2 )
+{
+	LCD_DrawLine(x1,y1,x2,y1);
+	LCD_DrawLine(x1,y1,x1,y2);
+	LCD_DrawLine(x1,y2,x2,y2);
+	LCD_DrawLine(x2,y1,x2,y2);
+}
+
+void Draw_Circle(u16 x0,u16 y0,u8 r)
+{
+	int a,b;
+	int di;
+	a=0;b=r;	  
+	di=3-(r<<1);
+	while(a<=b)
+	{
+		LCD_DrawPoint(x0-b,y0-a);             //3           
+		LCD_DrawPoint(x0+b,y0-a);             //0           
+		LCD_DrawPoint(x0-a,y0+b);             //1       
+		LCD_DrawPoint(x0-b,y0-a);             //7           
+		LCD_DrawPoint(x0-a,y0-b);             //2             
+		LCD_DrawPoint(x0+b,y0+a);             //4               
+		LCD_DrawPoint(x0+a,y0-b);             //5
+		LCD_DrawPoint(x0+a,y0+b);             //6 
+		LCD_DrawPoint(x0-b,y0+a);             
+		a++;   
+		if(di<0)di +=4*a+6;	  
+		else
+		{
+			di+=10+4*(a-b);   
+			b--;
+		} 
+		LCD_DrawPoint(x0+a,y0+b);
+	}
+} 
+
+void LCD_ShowChar(u16 x,u16 y,u8 num,u8 size,u8 mode)
+{     
+  #define MAX_CHAR_POSX 232
+  #define MAX_CHAR_POSY 312
+
+    u8 temp;
+    u8 pos,t;
+	u16 x0=x;   
+    if(x>MAX_CHAR_POSX||y>MAX_CHAR_POSY)return;	    
+   
+	num=num-' ';
+	if(!mode) 
+	{
+		for(pos=0;pos<size;pos++)
+		{
+			if(size==12)temp=asc2_1206[num][pos];
+			else temp=asc2_1608[num][pos];
+			for(t=0;t<size/2;t++)
+		    {                 
+		        if(temp&0x01)LCD_DrawPoint(x,y);	
+				else LCD_ClearPoint(x,y);
+				
+				temp>>=1; 
+				x++;
+		    }
+			x=x0;
+			y++;
+		}	
+	}else
+	{
+		for(pos=0;pos<size;pos++)
+		{
+			if(size==12)temp=asc2_1206[num][pos];
+			else temp=asc2_1608[num][pos];		 
+			for(t=0;t<size/2;t++)
+		    {                 
+		        if(temp&0x01)LCD_DrawPoint(x+t,y+pos);
+		        temp>>=1; 
+		    }
+		}
+	}	   	 	  
+} 
+
+u32 mypow(u8 m,u8 n)
+{
+	u32 result=1;	 
+	while(n--)result*=m;    
+	return result;
+}	
+
+
+void LCD_ShowNum(u16 x,u16 y,u32 num,u8 len,u8 size)
+{         	
+	u8 t,temp;
+	u8 enshow=0;						   
+	for(t=0;t<len;t++)
+	{
+		temp=(num/mypow(10,len-t-1))%10;
+		if(enshow==0&&t<(len-1))
+		{
+			if(temp==0)
+			{
+				LCD_ShowChar(x+(size/2)*t,y,' ',size,0);
+				continue;
+			}else enshow=1; 
+		 	 
+		}
+	 	LCD_ShowChar(x+(size/2)*t,y,temp+'0',size,0); 
+	}
+} 
+
+void LCD_Show2Num(u16 x,u16 y,u16 num,u8 len,u8 size,u8 mode)
+{         	
+	u8 t,temp;						   
+	for(t=0;t<len;t++)
+	{
+		temp=(num/mypow(10,len-t-1))%10;
+	 	LCD_ShowChar(x+(size/2)*t,y,temp+'0',size,mode); 
+	}
+} 
+
+
+void LCD_ShowString(u16 x,u16 y,const u8 *p)
+{         
+    while(*p!='\0')
+    {       
+        if(x>MAX_CHAR_POSX){x=0;y+=16;}
+        if(y>MAX_CHAR_POSY){y=x=0;LCD_Clear(g_background);}
+        LCD_ShowChar(x,y,*p,16,0);
+        x+=8;
+        p++;
+    }  
+}
+
+void LCD_ShowfloatNum(u16 x,u16 y,float num,u8 lenZ,u8 lenX,u8 size)
+{
+      unsigned char i;
+      float numX;
+      numX = num - (unsigned int)num;     
+      for(i=0;i<lenX;i++)
+        numX = numX * 10;
+      LCD_ShowNum(x,y,(unsigned int)num,lenZ,size);
+      if(size == 12)
+      {
+        LCD_ShowChar(x+lenZ*6,y,'.',size,0);
+        LCD_ShowNum(x+(lenZ+1)*6,y,(unsigned int)numX,lenX,size);
+      }else
+      {
+        LCD_ShowChar(x+lenZ*8,y,'.',size,0);
+        LCD_ShowNum(x+(lenZ+1)*8,y,(unsigned int)numX,lenX,size);
+      
+      }  
+}
+
+void LCD_SetColor( u16 forground , u16 background )
+{
+    g_forground = forground;
+    g_background = background;
 }
 
 void LCD_Init(void)
 {
+    LCD_SetColor( WHITE , BLACK );
+    
     P3DIR = 0xff;
     P3OUT = 0xff;  
     P4DIR = 0xff;
@@ -305,4 +533,18 @@ void LCD_Test(void)
     LCD_Init();
     delay_ms(120); 
     LCD_DisplayOn();
+
+    int bold=20;
+    while( bold-- )
+    Draw_Circle(100 , 200 , bold);
+
+    LCD_DrawRectangle( 120 , 220 , 150 , 270 );
+
+
+    LCD_ShowString(30,50,"MSP430F5438a");	
+    LCD_ShowString(30,70,"2.4'/2.8' TFTLCD TEST");	
+    LCD_ShowString(30,90,"Hawk");
+    LCD_ShowNum(30,110,53345405,6,16);
+    LCD_ShowfloatNum(30,130,3.14159265,7,4,16);
+  
 }
