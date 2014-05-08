@@ -2015,6 +2015,9 @@
     <group>
       <name>LCD_ili9341</name>
       <file>
+        <name>$PROJ_DIR$\ExternDriver\LCD_ili9341\font.h</name>
+      </file>
+      <file>
         <name>$PROJ_DIR$\ExternDriver\LCD_ili9341\LCD_ili9341.c</name>
       </file>
       <file>

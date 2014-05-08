@@ -12,6 +12,8 @@ typedef unsigned short     int u16;
 typedef unsigned          char u8;
 typedef unsigned           int u32;
 
+#define FONT_SIZE_16 16
+#define FONT_SIZE_12 12
 
 #define WHITE         	 0xFFFF
 #define BLACK         	 0x0000	  
@@ -384,13 +386,13 @@ void LCD_Show2Num(u16 x,u16 y,u16 num,u8 len,u8 size,u8 mode)
 } 
 
 
-void LCD_ShowString(u16 x,u16 y,const u8 *p)
+void LCD_ShowString(u16 x,u16 y,const u8 *p,u8 size)
 {         
     while(*p!='\0')
     {       
         if(x>MAX_CHAR_POSX){x=0;y+=16;}
         if(y>MAX_CHAR_POSY){y=x=0;LCD_Clear(g_background);}
-        LCD_ShowChar(x,y,*p,16,0);
+        LCD_ShowChar(x,y,*p,size,0);
         x+=8;
         p++;
     }  
@@ -534,17 +536,25 @@ void LCD_Test(void)
     delay_ms(120); 
     LCD_DisplayOn();
 
-    int bold=20;
-    while( bold-- )
-    Draw_Circle(100 , 200 , bold);
+    Draw_Circle(100 , 200 , 30);
 
     LCD_DrawRectangle( 120 , 220 , 150 , 270 );
 
+    int line_number=0;
+    LCD_ShowString(0,line_number++,"abcdefghijklmnopqrstuvwxyz",FONT_SIZE_12);	
+    LCD_ShowString(0,FONT_SIZE_12*line_number++,"0123456789",FONT_SIZE_12);	    
 
-    LCD_ShowString(30,50,"MSP430F5438a");	
-    LCD_ShowString(30,70,"2.4'/2.8' TFTLCD TEST");	
-    LCD_ShowString(30,90,"Hawk");
-    LCD_ShowNum(30,110,53345405,6,16);
-    LCD_ShowfloatNum(30,130,3.14159265,7,4,16);
+    LCD_ShowString(0,FONT_SIZE_12*line_number++,"abcdefghijklmnopqrstuvwxyz",FONT_SIZE_16);	
+    LCD_ShowString(0,FONT_SIZE_16*line_number++,"0123456789",FONT_SIZE_16);	    
+    
+    LCD_ShowString(0,FONT_SIZE_16*line_number++,"+-----------------------+",FONT_SIZE_16);
+    LCD_ShowString(0,FONT_SIZE_16*line_number++,"|  |   |          |     |",FONT_SIZE_16);
+    LCD_ShowString(0,FONT_SIZE_16*line_number++,"|  |---|,---.. . .|__/  |",FONT_SIZE_16);
+    LCD_ShowString(0,FONT_SIZE_16*line_number++,"|  |   |,---|| | ||  \\  |",FONT_SIZE_16);
+    LCD_ShowString(0,FONT_SIZE_16*line_number++,"|  `   '`---^`-'-'`   ` |",FONT_SIZE_16);
+    LCD_ShowString(0,FONT_SIZE_16*line_number++,"+-----------------------+",FONT_SIZE_16);
+                            
+ //   LCD_ShowNum(30,110,53345405,6,16);
+ //  LCD_ShowfloatNum(30,130,3.14159265,7,4,16);
   
 }
